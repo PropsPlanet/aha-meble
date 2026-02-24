@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHA Meble — Meble na wymiar Gdańsk | Kuchnie, Szafy, Zabudowy na wymiar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terra:    #754437;
+      --terra-dk: #5e3529;
+      --areia:    #D3C7AD;
+      --verde:    #6B6751;
+      --azul:     #28374A;
+      --off:      #F5F3EF;
+      --white:    #FFFFFF;
+      --dark:     #3D2B1F;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--off);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: .55rem;
+      text-decoration: none; color: var(--dark);
+    }
+    .nav-logo .logo-mark { height: 38px; width: auto; color: var(--dark); }
+    .nav-logo .logo-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 400; font-style: italic;
+      color: var(--terra); letter-spacing: -.01em; line-height: 1;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 1.1rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--dark); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      background: var(--terra); color: var(--white);
+      padding: .6rem 1.6rem;
+      font-size: 1.1rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--terra-dk); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative; height: 88vh; min-height: 580px;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-bg {
+      position: absolute; inset: -10%;
+      will-change: transform;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.58) 100%);
+    }
+    .hero-content {
+      position: relative; text-align: center; color: var(--white); padding: 0 2rem;
+    }
+
+    /* ── AHA mark + stroke-draw ── */
+    .hero-headline {
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(1.2rem, 3vw, 2.4rem);
+      margin-bottom: 1.6rem;
+    }
+    .hero-mark { height: min(72px, 11vw); width: auto; color: white; flex-shrink: 0; }
+    .hero-mark path, .hero-mark line {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+    }
+    .hero-mark .a1  { animation: drawStroke .7s cubic-bezier(.4,0,.2,1) .2s forwards; }
+    .hero-mark .a1x { animation: drawStroke .25s cubic-bezier(.4,0,.2,1) .82s forwards; }
+    .hero-mark .h1  { animation: drawStroke .38s cubic-bezier(.4,0,.2,1) .95s forwards; }
+    .hero-mark .h2  { animation: drawStroke .38s cubic-bezier(.4,0,.2,1) 1.05s forwards; }
+    .hero-mark .hx  { animation: drawStroke .22s cubic-bezier(.4,0,.2,1) 1.3s forwards; }
+    .hero-mark .a2  { animation: drawStroke .7s cubic-bezier(.4,0,.2,1) 1.45s forwards; }
+    .hero-mark .a2x { animation: drawStroke .25s cubic-bezier(.4,0,.2,1) 2.05s forwards; }
+    @keyframes drawStroke { to { stroke-dashoffset: 0; } }
+    .hero-divider { display: none; }
+
+    /* staggered text reveal */
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4.8rem, 11vw, 9.5rem);
+      font-weight: 400; font-style: italic;
+      line-height: 1; margin: 0;
+      text-shadow: 0 2px 40px rgba(0,0,0,.3);
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s ease 2.1s forwards;
+    }
+    .hero-sub {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400;
+      margin-bottom: 2.5rem; opacity: 0;
+      animation: fadeUp .8s ease 2.55s forwards;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .btn-primary-wrap { opacity: 0; animation: fadeUp .8s ease 2.9s forwards; display: inline-block; }
+
+    /* ── film grain overlay ── */
+    #hero::after {
+      content: '';
+      position: absolute; inset: -50%;
+      width: 200%; height: 200%;
+      pointer-events: none; z-index: 2;
+      opacity: .042;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      animation: grainAnim .55s steps(1) infinite;
+    }
+    @keyframes grainAnim {
+      0%   { transform: translate(0,0); }
+      20%  { transform: translate(-4%,-5%); }
+      40%  { transform: translate(-8%, 4%); }
+      60%  { transform: translate(4%,-8%); }
+      80%  { transform: translate(-3%, 11%); }
+      100% { transform: translate(7%, 3%); }
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--terra); color: var(--white);
+      padding: .9rem 2.2rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--terra-dk); transform: translateY(-1px); }
+
+    /* ─── REALIZACJE ─── */
+    #realizacje {
+      background: var(--white);
+      padding: 5.5rem 0 3.5rem;
+    }
+    .sec-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3.5rem; margin-bottom: 2.5rem;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--dark);
+    }
+    .gallery-ctrl { display: flex; align-items: center; gap: .6rem; }
+    .g-btn {
+      width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.18);
+      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: var(--dark); transition: all .2s;
+    }
+    .g-btn:hover { background: var(--dark); color: white; border-color: var(--dark); }
+    .ig-link {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .68rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none; margin-left: .4rem;
+      transition: color .2s;
+    }
+    .ig-link:hover { color: var(--terra); }
+
+    .gallery-viewport {
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0 3.5rem;
+    }
+    .gallery-viewport::-webkit-scrollbar { display: none; }
+    .gallery-track { display: flex; gap: 1.4rem; }
+    .g-card {
+      flex: 0 0 calc((100vw - 9.8rem) / 3);
+      cursor: pointer;
+    }
+    .g-img-wrap {
+      position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--areia);
+    }
+    .g-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(.82);
+      transition: transform .6s ease, filter .4s;
+    }
+    .g-card:hover .g-img-wrap img { transform: scale(1.05); filter: saturate(1); }
+
+    /* watermark removed */
+
+    .g-expand {
+      position: absolute; top: .8rem; right: .8rem;
+      width: 32px; height: 32px; background: rgba(255,255,255,.9);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s; color: var(--dark);
+    }
+    .g-card:hover .g-expand { opacity: 1; }
+
+    .g-info { padding: .85rem 0 0; }
+    .g-name {
+      font-family: 'Playfair Display', serif;
+      font-size: .98rem; font-weight: 400; color: var(--dark);
+    }
+    .g-cat {
+      font-size: .62rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--verde); margin-top: .2rem;
+    }
+
+    .ig-end { text-align: right; padding: 2rem 3.5rem 0; }
+
+    /* ─── PROCES ─── */
+    #proces {
+      background: var(--terra); padding: 6rem 3.5rem;
+      text-align: center;
+    }
+    #proces .sec-title {
+      font-style: italic; color: var(--white);
+      font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 1.2rem;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid rgba(255,255,255,.55); border-radius: 2rem;
+      color: var(--white); padding: .45rem 1.2rem;
+      font-size: .66rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+      margin-bottom: 3.5rem;
+    }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; max-width: 860px; margin: 0 auto; }
+    .step { display: flex; flex-direction: column; align-items: center; gap: .85rem; }
+    .step-num {
+      width: 78px; height: 78px; border-radius: 50%;
+      background: var(--areia);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--terra);
+    }
+    .step-lbl {
+      font-family: 'Playfair Display', serif; font-size: 1.25rem;
+      font-weight: 400; color: var(--white);
+    }
+    .step-desc { font-size: .8rem; color: rgba(255,255,255,.78); line-height: 1.6; }
+
+    /* ─── O NAS ─── */
+    #o-nas {
+      background: var(--azul); padding: 7rem 3.5rem;
+      text-align: center;
+    }
+    .o-label {
+      font-size: .62rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.45); margin-bottom: 2rem;
+    }
+    .o-quote {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 400;
+      color: var(--white); max-width: 800px; margin: 0 auto;
+      line-height: 1.65; quotes: none;
+    }
+    .o-divider {
+      width: 40px; height: 1px; background: rgba(255,255,255,.2);
+      margin: 4rem auto;
+    }
+    /* hala */
+    .o-hala {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+      max-width: 900px; margin: 0 auto 5rem;
+    }
+    .o-hala-img {
+      aspect-ratio: 4/3; background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: .7rem;
+    }
+    .o-hala-img svg { opacity: .25; }
+    .o-hala-img span {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+    }
+    /* zespół */
+    .o-team-label {
+      font-size: .62rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 3rem;
+    }
+    .o-team {
+      display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto;
+    }
+    .o-person { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+    .o-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .o-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .o-avatar-placeholder svg { opacity: .2; }
+    .o-person-name {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      color: var(--white); font-size: 1.05rem;
+    }
+    .o-person-role {
+      font-size: .63rem; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-top: -.5rem;
+    }
+    @media (max-width: 700px) {
+      .o-hala { grid-template-columns: 1fr; }
+      .o-team { gap: 3rem; }
+    }
+
+    /* ─── KONTAKT ─── */
+    #kontakt { background: var(--areia); padding: 6rem 3.5rem; }
+    .k-grid {
+      display: grid; grid-template-columns: 1fr 1.35fr; gap: 5rem;
+      max-width: 1100px; margin: 0 auto; align-items: start;
+    }
+    .k-heading {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 400;
+      color: var(--terra); line-height: 1.15; margin-bottom: 2.8rem;
+    }
+    .k-row { margin-bottom: 1.6rem; }
+    .k-lbl {
+      font-size: .6rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--verde); margin-bottom: .3rem;
+    }
+    .k-val { font-size: .97rem; color: var(--dark); line-height: 1.5; }
+    .k-val a { color: var(--dark); text-decoration: none; }
+    .k-val a:hover { color: var(--terra); text-decoration: underline; }
+
+    .maps-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      margin-top: .6rem;
+      font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--verde); text-decoration: none;
+      border-bottom: 1px solid var(--verde);
+      padding-bottom: .1rem;
+      transition: color .2s, border-color .2s;
+    }
+    .maps-btn:hover { color: var(--terra); border-color: var(--terra); }
+
+    .socials { display: flex; gap: .9rem; margin-top: 2rem; }
+    .soc-a { color: var(--dark); transition: color .2s; }
+    .soc-a:hover { color: var(--terra); }
+
+    /* Form card */
+    .form-card { background: var(--white); padding: 0; overflow: hidden; }
+    .form-top-bar { height: 4px; background: var(--terra); }
+    .form-inner { padding: 2.2rem 2.4rem 2.4rem; }
+    .f-group { margin-bottom: 1.2rem; }
+    .f-lbl {
+      display: block; font-size: .6rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--verde); margin-bottom: .45rem;
+    }
+    .f-input, .f-ta {
+      width: 100%; border: 1px solid rgba(0,0,0,.1);
+      padding: .8rem 1rem; background: #fafaf8;
+      font-family: 'Inter', sans-serif; font-size: .88rem; color: var(--dark);
+      outline: none; transition: border-color .2s, background .2s;
+    }
+    .f-input:focus, .f-ta:focus { border-color: var(--terra); background: white; }
+    .f-ta { resize: vertical; min-height: 110px; }
+    .f-submit {
+      width: 100%; background: var(--terra); color: var(--white); border: none;
+      padding: .95rem; margin-top: .4rem;
+      font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      transition: background .2s;
+    }
+    .f-submit:hover { background: var(--terra-dk); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--areia); border-top: 1px solid rgba(0,0,0,.1);
+      padding: 1.4rem 3.5rem; text-align: center;
+    }
+    footer p { font-size: .68rem; color: var(--verde); letter-spacing: .08em; }
+
+    /* ─── MODAL ─── */
+    .modal {
+      display: none; position: fixed; inset: 0; z-index: 900;
+      background: rgba(0,0,0,.93); align-items: center; justify-content: center;
+    }
+    .modal.open { display: flex; }
+    .modal-box { position: relative; display: flex; flex-direction: column; align-items: center; max-width: 96vw; }
+    .modal-close {
+      position: absolute; top: -2.8rem; right: 0;
+      background: none; border: none; color: white; font-size: 1.4rem;
+      cursor: pointer; opacity: .7; transition: opacity .2s;
+    }
+    .modal-close:hover { opacity: 1; }
+    .modal-img {
+      max-width: 88vw; max-height: 80vh; object-fit: contain;
+      transition: opacity .2s ease;
+    }
+    .modal-img.fade { opacity: 0; }
+    .modal-footer {
+      display: flex; align-items: center; gap: 1.6rem; margin-top: .9rem;
+    }
+    .modal-cap {
+      color: white;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem;
+    }
+    .modal-counter {
+      color: rgba(255,255,255,.45); font-size: .78rem; letter-spacing: .1em;
+      font-family: 'Inter', sans-serif;
+    }
+    .modal-nav {
+      background: none; border: none; color: rgba(255,255,255,.7);
+      cursor: pointer; font-size: 1.6rem; padding: .3rem .6rem;
+      transition: color .15s; line-height: 1;
+      position: absolute; top: 50%; transform: translateY(-50%);
+    }
+    .modal-nav:hover { color: white; }
+    .modal-nav.prev { left: -4rem; }
+    .modal-nav.next { right: -4rem; }
+    @media (max-width: 700px) {
+      .modal-nav.prev { left: -2.4rem; }
+      .modal-nav.next { right: -2.4rem; }
+    }
+    /* photo count badge on card */
+    .g-count {
+      position: absolute; bottom: .7rem; left: .7rem;
+      background: rgba(0,0,0,.5); color: white;
+      font-size: .7rem; letter-spacing: .08em;
+      padding: .25rem .55rem; border-radius: 2px;
+      font-family: 'Inter', sans-serif; pointer-events: none;
+    }
+
+    /* ─── SCROLL FADE ─── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .fi.vis { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .sec-header, .gallery-viewport, .ig-end,
+      #proces, #o-nas, #kontakt, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      /* tablet: 2 karty, padding 1.5rem×2=3rem, 1 gap 1.4rem → (100vw - 4.4rem) / 2 */
+      .g-card { flex: 0 0 calc((100vw - 4.4rem) / 2); }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .k-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 540px) {
+      .g-card { flex: 0 0 80vw; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <!-- AHA mark — gestural strokes -->
+    <svg class="logo-mark" viewBox="0 0 88 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AHA">
+      <!-- A -->
+      <path d="M2 32 L14 2 L26 32" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="7.4" y1="20" x2="20.6" y2="20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <!-- H -->
+      <line x1="36" y1="2" x2="36" y2="32" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <line x1="50" y1="2" x2="50" y2="32" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <line x1="36" y1="17" x2="50" y2="17" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <!-- A -->
+      <path d="M60 32 L72 2 L84 32" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="65.4" y1="20" x2="78.6" y2="20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-word">Meble</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#realizacje">Realizacje</a></li>
+    <li><a href="#proces">Proces</a></li>
+    <li><a href="#o-nas">O nas</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Wyceń projekt</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://videos.pexels.com/video-files/7480060/7480060-hd_2048_1080_25fps.mp4" type="video/mp4">
+  </video>
+</div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-headline">
+      <svg class="hero-mark" viewBox="0 0 88 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="a1"  d="M2 32 L14 2 L26 32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <line class="a1x" x1="7.4" y1="20" x2="20.6" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line class="h1"  x1="36" y1="2" x2="36" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line class="h2"  x1="50" y1="2" x2="50" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <line class="hx"  x1="36" y1="17" x2="50" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path class="a2"  d="M60 32 L72 2 L84 32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <line class="a2x" x1="65.4" y1="20" x2="78.6" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <div class="hero-divider"></div>
+      <h1 class="hero-title">Meble</h1>
+    </div>
+    <p class="hero-sub">Tradycja spotyka technologię.</p>
+    <span class="btn-primary-wrap">
+      <a href="#realizacje" class="btn-primary">
+        Zobacz realizacje
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </span>
+  </div>
+</section>
+
+<!-- ═══ REALIZACJE ═══ -->
+<section id="realizacje">
+  <div class="sec-header">
+    <h2 class="sec-title fi">Wybrane Realizacje</h2>
+    <div class="gallery-ctrl">
+      <button class="g-btn" id="gPrev" aria-label="Poprzedni">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="g-btn" id="gNext" aria-label="Następny">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <a href="#" class="ig-link">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/>
+        </svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="gallery-viewport">
+    <div class="gallery-track" id="gTrack"></div>
+  </div>
+
+  <div class="ig-end">
+    <a href="#" class="ig-link" style="color:var(--terra);">
+      Zobacz więcej na Instagramie
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ PROCES ═══ -->
+<section id="proces">
+  <h2 class="sec-title fi">Proces</h2>
+  <div class="badge">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Odpowiadamy w 24h
+  </div>
+  <div class="steps fi">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-lbl">Konsultacja</div>
+      <p class="step-desc">Omawiamy Twój projekt i potrzeby</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-lbl">Wycena</div>
+      <p class="step-desc">Przejrzysta oferta w 24 godziny</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-lbl">Produkcja</div>
+      <p class="step-desc">CNC + precyzja ręki stolarza</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-lbl">Montaż</div>
+      <p class="step-desc">Terminowa dostawa i instalacja</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ O NAS ═══ -->
+<section id="o-nas">
+  <p class="o-label fi">O AHA Meble</p>
+  <p class="o-quote fi">
+    15 lat doświadczenia stolarskiego. Precyzja maszyn CNC.
+    Specjalizujemy się w nietypowych realizacjach dla biur projektowych
+    i inwestorów prywatnych.
+  </p>
+
+  <div class="o-divider"></div>
+
+  <!-- Hala produkcyjna -->
+  <p class="o-team-label fi">Nasza pracownia</p>
+  <div class="o-hala fi">
+    <div class="o-hala-img">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
+        <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+      <span>Zdjęcie hali — wkrótce</span>
+    </div>
+    <div class="o-hala-img">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
+        <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+      </svg>
+      <span>Zdjęcie maszyn — wkrótce</span>
+    </div>
+  </div>
+
+  <div class="o-divider"></div>
+
+  <!-- Zespół -->
+  <p class="o-team-label fi">Ludzie za projektem</p>
+  <div class="o-team fi">
+    <div class="o-person">
+      <div class="o-avatar o-avatar-placeholder">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+      <p class="o-person-name">Andrzej Harackiewicz</p>
+      <p class="o-person-role">Mistrz stolarski · Założyciel</p>
+    </div>
+    <div class="o-person">
+      <div class="o-avatar o-avatar-placeholder">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+      <p class="o-person-name">Adam Harackiewicz</p>
+      <p class="o-person-role">Projektowanie · Realizacje</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KONTAKT ═══ -->
+<section id="kontakt">
+  <div class="k-grid">
+    <div>
+      <h2 class="k-heading fi">Porozmawiajmy<br>o projekcie.</h2>
+      <div class="k-row fi">
+        <p class="k-lbl">Email</p>
+        <p class="k-val"><a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a></p>
+      </div>
+      <div class="k-row fi">
+        <p class="k-lbl">Telefon</p>
+        <p class="k-val"><a href="tel:+48507027300">507 027 300</a></p>
+      </div>
+      <div class="k-row fi">
+        <p class="k-lbl">Adres</p>
+        <p class="k-val">Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
+        <a class="maps-btn" href="https://www.google.com/maps/place/Good+Wood/@54.3438515,18.4860517,12z/data=!4m10!1m2!2m1!1sstolarz+gdansk!3m6!1s0x46fd0b552186e251:0xa39b4bdfd2ed6d85!8m2!3d54.346559!4d18.6027982!15sCg5zdG9sYXJ6IGdkYW5za1oQIg5zdG9sYXJ6IGdkYW5za5IBD2Z1cm5pdHVyZV9tYWtlcpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSQ00yRnBaM1ZuUlJBQuABAPoBBAgnEEk!16s%2Fg%2F1v46z0_f?entry=ttu" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Zobacz na Google Maps
+        </a>
+      </div>
+      <div class="k-row fi">
+        <p class="k-lbl">NIP</p>
+        <p class="k-val">957 106 71 37</p>
+      </div>
+      <div class="socials fi">
+        <a href="#" class="soc-a" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" class="soc-a" aria-label="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-card fi">
+      <div class="form-top-bar"></div>
+      <div class="form-inner">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="f-group">
+            <label class="f-lbl" for="fname">Imię</label>
+            <input class="f-input" type="text" id="fname" placeholder="Jan Kowalski" required>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl" for="femail">Email</label>
+            <input class="f-input" type="email" id="femail" placeholder="jan@biuro.pl" required>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl" for="fphone">Telefon (opcjonalnie)</label>
+            <input class="f-input" type="tel" id="fphone" placeholder="+48 500 000 000">
+          </div>
+          <div class="f-group">
+            <label class="f-lbl" for="fmsg">Projekt</label>
+            <textarea class="f-ta" id="fmsg" placeholder="Opisz swój projekt — rodzaj mebla, wymiary, materiał, termin..." required></textarea>
+          </div>
+          <button type="submit" class="f-submit" id="fBtn">
+            Wyślij wiadomość
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2026 AHA Meble &nbsp;·&nbsp; MNW Sp. z o.o. &nbsp;·&nbsp; NIP: 957 106 71 37 &nbsp;·&nbsp; Batalionów Chłopskich 8, 83-000 Pruszcz Gdański</p>
+</footer>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-nav prev" id="mPrev" onclick="modalStep(-1)">&#8592;</button>
+    <img class="modal-img" id="mImg" src="" alt="">
+    <button class="modal-nav next" id="mNext" onclick="modalStep(1)">&#8594;</button>
+    <div class="modal-footer">
+      <p class="modal-cap" id="mCap"></p>
+      <span class="modal-counter" id="mCounter"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Gallery data ──
+const IMG = 'imgs/';
+const PROJECTS = [
+  {
+    name: 'Brzezno',
+    cat:  'Dom prywatny',
+    imgs: [
+      IMG+'brzezno_01.jpg',
+      IMG+'brzezno_02.jpg',
+      IMG+'brzezno_03.jpg',
+      IMG+'brzezno_04.jpg',
+      IMG+'brzezno_05.jpg',
+    ]
+  },
+  {
+    name: 'Klinika DENTUS',
+    cat:  'Obiekt publiczny',
+    imgs: [
+      IMG+'dentus_01.jpg',
+      IMG+'dentus_02.jpg',
+      IMG+'dentus_03.jpg',
+    ]
+  },
+  {
+    name: 'Romuald',
+    cat:  'Dom prywatny',
+    imgs: [
+      IMG+'romuald_01.jpg',
+      IMG+'romuald_02.jpg',
+      IMG+'romuald_03.jpg',
+      IMG+'romuald_04.jpg',
+      IMG+'romuald_05.jpg',
+      IMG+'romuald_06.jpg',
+    ]
+  },
+  { name: 'Wkrótce', cat: 'Apartament',        imgs: ['https://placehold.co/400x533/754437/D3C7AD?text=Wkrótce'] },
+  { name: 'Wkrótce', cat: 'Dom prywatny',       imgs: ['https://placehold.co/400x533/28374A/D3C7AD?text=Wkrótce'] },
+];
+
+// ── Render gallery ──
+const track = document.getElementById('gTrack');
+PROJECTS.forEach((p, pi) => {
+  const cover = p.imgs[0];
+  const count = p.imgs.length;
+  const c = document.createElement('div');
+  c.className = 'g-card';
+  c.onclick = () => openGallery(pi, 0);
+  c.innerHTML = `
+    <div class="g-img-wrap">
+      <img src="${cover}" alt="${p.name}" loading="lazy">
+      ${count > 1 ? `<span class="g-count">${count} zdjęć</span>` : ''}
+      <button class="g-expand" onclick="openGallery(${pi},0)" aria-label="Powiększ">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+        </svg>
+      </button>
+    </div>
+    <div class="g-info">
+      <div class="g-name">${p.name}</div>
+      <div class="g-cat">${p.cat}</div>
+    </div>`;
+  track.appendChild(c);
+});
+
+// ── Scroll logic (native scrollLeft — niezawodne) ──
+const vp = document.querySelector('.gallery-viewport');
+
+function cardW() {
+  const c = track.children[0];
+  if (!c) return 0;
+  const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 22;
+  return c.offsetWidth + gap;
+}
+
+document.getElementById('gNext').addEventListener('click', () => {
+  vp.scrollBy({ left: cardW(), behavior: 'smooth' });
+});
+document.getElementById('gPrev').addEventListener('click', () => {
+  vp.scrollBy({ left: -cardW(), behavior: 'smooth' });
+});
+
+// ── Parallax (scroll + mouse depth) ──
+const heroBg    = document.getElementById('heroBg');
+const heroSect  = document.getElementById('hero');
+const heroInner = heroSect.querySelector('.hero-content');
+
+let _scrollY = 0;
+let _tMX = 0, _tMY = 0;   // target mouse -1..1
+let _cMX = 0, _cMY = 0;   // current (lerped)
+let _rafP = false;
+
+window.addEventListener('scroll', () => {
+  _scrollY = window.pageYOffset;
+  document.getElementById('navbar').classList.toggle('scrolled', _scrollY > 40);
+  _applyHero();
+}, { passive: true });
+
+heroSect.addEventListener('mousemove', e => {
+  const r  = heroSect.getBoundingClientRect();
+  _tMX = (e.clientX - r.left  - r.width  / 2) / (r.width  / 2);
+  _tMY = (e.clientY - r.top   - r.height / 2) / (r.height / 2);
+  if (!_rafP) { _rafP = true; _lerpHero(); }
+});
+heroSect.addEventListener('mouseleave', () => { _tMX = 0; _tMY = 0; });
+
+function _lerpHero() {
+  _cMX += (_tMX - _cMX) * 0.07;
+  _cMY += (_tMY - _cMY) * 0.07;
+  _applyHero();
+  if (Math.abs(_tMX - _cMX) > 0.002 || Math.abs(_tMY - _cMY) > 0.002) {
+    requestAnimationFrame(_lerpHero);
+  } else { _rafP = false; _applyHero(); }
+}
+
+function _applyHero() {
+  const bx = _cMX * -24, by = _cMY * -16;
+  heroBg.style.transform    = `translate(${bx}px, calc(${by}px + ${_scrollY * 0.38}px))`;
+  heroInner.style.transform = `translate(${_cMX * 7}px, ${_cMY * 5}px)`;
+}
+
+// ── Modal / slideshow ──
+let _mProject = 0, _mPhoto = 0;
+
+function openGallery(pi, ph) {
+  _mProject = pi; _mPhoto = ph;
+  _renderModal();
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function _renderModal() {
+  const p = PROJECTS[_mProject];
+  const total = p.imgs.length;
+  const img = document.getElementById('mImg');
+  img.classList.add('fade');
+  setTimeout(() => {
+    img.src = p.imgs[_mPhoto];
+    img.alt = p.name;
+    img.classList.remove('fade');
+  }, 160);
+  document.getElementById('mCap').textContent = p.name + ' — ' + p.cat;
+  document.getElementById('mCounter').textContent = total > 1 ? `${_mPhoto+1} / ${total}` : '';
+  document.getElementById('mPrev').style.display = (_mPhoto > 0) ? '' : 'none';
+  document.getElementById('mNext').style.display = (_mPhoto < total-1) ? '' : 'none';
+}
+
+function modalStep(dir) {
+  const total = PROJECTS[_mProject].imgs.length;
+  _mPhoto = Math.max(0, Math.min(total-1, _mPhoto + dir));
+  _renderModal();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('modal').classList.contains('open')) return;
+  if (e.key === 'Escape')       closeModal();
+  if (e.key === 'ArrowRight')   modalStep(1);
+  if (e.key === 'ArrowLeft')    modalStep(-1);
+});
+
+// touch swipe in modal
+let _mtx = 0;
+document.getElementById('mImg').addEventListener('touchstart', e => _mtx = e.touches[0].clientX, {passive:true});
+document.getElementById('mImg').addEventListener('touchend', e => {
+  const d = _mtx - e.changedTouches[0].clientX;
+  if (d > 40) modalStep(1);
+  if (d < -40) modalStep(-1);
+});
+
+// ── Scroll fade-in ──
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+// ── Form ──
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('fBtn');
+  btn.textContent = '✓ Wiadomość wysłana!';
+  btn.style.background = '#4a7c59';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = 'Wyślij wiadomość <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    btn.style.background = '';
+    btn.disabled = false;
+    document.getElementById('contactForm').reset();
+  }, 4000);
+}
+</script>
+</body>
+</html>
