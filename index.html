@@ -446,10 +446,66 @@
     .fi { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
     .fi.vis { opacity: 1; transform: none; }
 
+    /* ─── HAMBURGER ─── */
+    .nav-burger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      cursor: pointer; padding: .4rem; background: none; border: none;
+      z-index: 301; margin-left: .8rem;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dark);
+      transition: transform .3s ease, opacity .3s ease;
+      transform-origin: center;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE OVERLAY ─── */
+    .nav-mobile {
+      position: fixed; inset: 0; z-index: 300;
+      background: var(--off);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0;
+      transform: translateY(-100%);
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+      pointer-events: none;
+    }
+    .nav-mobile.open { transform: translateY(0); pointer-events: all; }
+    .nav-mobile a {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none;
+      padding: 1.1rem 0;
+      transition: color .2s;
+      opacity: 0; transform: translateY(12px);
+      transition: color .2s, opacity .35s ease, transform .35s ease;
+    }
+    .nav-mobile.open a { opacity: 1; transform: none; }
+    .nav-mobile.open a:nth-child(1) { transition-delay: .08s; }
+    .nav-mobile.open a:nth-child(2) { transition-delay: .14s; }
+    .nav-mobile.open a:nth-child(3) { transition-delay: .20s; }
+    .nav-mobile.open a:nth-child(4) { transition-delay: .26s; }
+    .nav-mobile.open a:nth-child(5) { transition-delay: .34s; }
+    .nav-mobile a:hover { color: var(--terra); }
+    .nav-mobile .mobile-cta {
+      margin-top: 1.6rem;
+      background: var(--terra); color: var(--white) !important;
+      padding: .8rem 2.8rem;
+      font-size: 1rem !important; letter-spacing: .1em;
+    }
+    .nav-mobile .mobile-cta:hover { background: var(--terra-dk); }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-logo .logo-mark { height: 30px; }
+      .nav-logo .logo-word { font-size: 1.5rem; }
       .sec-header, .gallery-viewport, .ig-end,
       #proces, #o-nas, #kontakt, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       /* tablet: 2 karty, padding 1.5rem×2=3rem, 1 gap 1.4rem → (100vw - 4.4rem) / 2 */
@@ -490,7 +546,19 @@
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
   <a href="#kontakt" class="nav-cta">Wyceń projekt</a>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#realizacje" class="mobile-link">Realizacje</a>
+  <a href="#proces" class="mobile-link">Proces</a>
+  <a href="#o-nas" class="mobile-link">O nas</a>
+  <a href="#kontakt" class="mobile-link">Kontakt</a>
+  <a href="#kontakt" class="mobile-link mobile-cta">Wyceń projekt</a>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
@@ -742,13 +810,43 @@ const PROJECTS = [
     name: 'Brzezno',
     cat:  'Dom prywatny',
     imgs: [
+      IMG+'brzezno_07.jpg',
       IMG+'brzezno_01.jpg',
       IMG+'brzezno_02.jpg',
-      IMG+'brzezno_03.jpg',
       IMG+'brzezno_04.jpg',
+      IMG+'brzezno_06.jpg',
+      IMG+'brzezno_03.jpg',
       IMG+'brzezno_05.jpg',
     ]
   },
+  {
+    name: 'Osiedle Południe',
+    cat:  'Dom prywatny',
+    imgs: [
+      IMG+'romuald_01.jpg',
+      IMG+'romuald_03.jpg',
+      IMG+'romuald_02.jpg',
+      IMG+'romuald_04.jpg',
+      IMG+'romuald_05.jpg',
+      IMG+'romuald_06.jpg',
+      IMG+'romuald_07.jpg',
+      IMG+'romuald_08.jpg',
+      IMG+'romuald_09.jpg',
+      IMG+'romuald_10.jpg',
+    ]
+  },
+  {
+    name: 'Nadmorski Dwór',
+    cat:  'Dom prywatny',
+    imgs: [
+      IMG+'nadmorski_04.jpg',
+      IMG+'nadmorski_01.jpg',
+      IMG+'nadmorski_05.jpg',
+      IMG+'nadmorski_03.jpg',
+      IMG+'nadmorski_02.jpg',
+    ]
+  },
+  { name: 'Wkrótce', cat: 'Apartament', imgs: ['https://placehold.co/400x533/28374A/D3C7AD?text=Wkrótce'] },
   {
     name: 'Klinika DENTUS',
     cat:  'Obiekt publiczny',
@@ -758,20 +856,6 @@ const PROJECTS = [
       IMG+'dentus_03.jpg',
     ]
   },
-  {
-    name: 'Romuald',
-    cat:  'Dom prywatny',
-    imgs: [
-      IMG+'romuald_01.jpg',
-      IMG+'romuald_02.jpg',
-      IMG+'romuald_03.jpg',
-      IMG+'romuald_04.jpg',
-      IMG+'romuald_05.jpg',
-      IMG+'romuald_06.jpg',
-    ]
-  },
-  { name: 'Wkrótce', cat: 'Apartament',        imgs: ['https://placehold.co/400x533/754437/D3C7AD?text=Wkrótce'] },
-  { name: 'Wkrótce', cat: 'Dom prywatny',       imgs: ['https://placehold.co/400x533/28374A/D3C7AD?text=Wkrótce'] },
 ];
 
 // ── Render gallery ──
@@ -907,6 +991,19 @@ document.getElementById('mImg').addEventListener('touchend', e => {
   if (d > 40) modalStep(1);
   if (d < -40) modalStep(-1);
 });
+
+// ── Hamburger menu ──
+const burger    = document.getElementById('navBurger');
+const mobileNav = document.getElementById('navMobile');
+function toggleMenu(open) {
+  burger.classList.toggle('open', open);
+  mobileNav.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', () => toggleMenu(!mobileNav.classList.contains('open')));
+document.querySelectorAll('.mobile-link').forEach(a =>
+  a.addEventListener('click', () => toggleMenu(false))
+);
 
 // ── Scroll fade-in ──
 const io = new IntersectionObserver(entries => {
