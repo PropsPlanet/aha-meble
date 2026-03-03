@@ -309,7 +309,18 @@
       overflow: hidden;
     }
     .o-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .o-avatar-placeholder svg { opacity: .2; }
+    .o-avatar-placeholder {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+    }
+    .o-avatar-initials {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.55rem;
+      color: rgba(255,255,255,.38);
+      user-select: none;
+      letter-spacing: .04em;
+    }
     .o-person-name {
       font-family: 'Playfair Display', serif; font-style: italic;
       color: var(--white); font-size: 1.05rem;
@@ -697,18 +708,14 @@
   <div class="o-team fi">
     <div class="o-person">
       <div class="o-avatar o-avatar-placeholder">
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
+        <span class="o-avatar-initials">AH</span>
       </div>
       <p class="o-person-name">Andrzej Harackiewicz</p>
       <p class="o-person-role">Mistrz stolarski · Założyciel</p>
     </div>
     <div class="o-person">
       <div class="o-avatar o-avatar-placeholder">
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
+        <span class="o-avatar-initials">AH</span>
       </div>
       <p class="o-person-name">Adam Harackiewicz</p>
       <p class="o-person-role">Projektowanie · Realizacje</p>
