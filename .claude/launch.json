@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aha-meble",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8503", "-d", "/Users/adamharackiewicz/My Drive (harackiewicza@gmail.com)/02_MNW/deploy"],
+      "port": 8503
+    }
+  ]
+}
