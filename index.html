@@ -77,8 +77,8 @@
       --dark:     #3D2B1F;
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); }
 
     /* ─── NAV ─── */
     nav {
@@ -243,6 +243,8 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       padding: 0 3.5rem;
+      touch-action: pan-x pan-y;
+      -webkit-overflow-scrolling: touch;
     }
     .gallery-viewport::-webkit-scrollbar { display: none; }
     .gallery-track { display: flex; gap: 1.4rem; }
@@ -789,14 +791,6 @@
       <button class="g-btn" id="gNext" aria-label="Następny">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </button>
-      <a href="#" class="ig-link">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/>
-        </svg>
-        Instagram
-      </a>
     </div>
   </div>
 
@@ -804,12 +798,6 @@
     <div class="gallery-track" id="gTrack"></div>
   </div>
 
-  <div class="ig-end">
-    <a href="#" class="ig-link" style="color:var(--terra);">
-      Zobacz więcej na Instagramie
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
 </section>
 
 <!-- ═══ PROCES ═══ -->
@@ -888,26 +876,6 @@
     przez ręce doświadczonego stolarza. Łączymy precyzję technologii
     z rzemiosłem, które nie znosi kompromisów.
   </p>
-
-  <div class="o-divider"></div>
-
-  <!-- Hala produkcyjna -->
-  <p class="o-team-label fi">Nasza pracownia</p>
-  <div class="o-hala fi">
-    <div class="o-hala-img">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
-        <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-        <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-      </svg>
-      <span>Zdjęcie hali — wkrótce</span>
-    </div>
-    <div class="o-hala-img">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2">
-        <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
-      </svg>
-      <span>Zdjęcie maszyn — wkrótce</span>
-    </div>
-  </div>
 
   <div class="o-divider"></div>
 
@@ -1025,20 +993,7 @@
         <p class="k-lbl">NIP</p>
         <p class="k-val">957 106 71 37</p>
       </div>
-      <div class="socials fi">
-        <a href="#" class="soc-a" aria-label="Instagram">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-        <a href="#" class="soc-a" aria-label="Facebook">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-          </svg>
-        </a>
-      </div>
+      <!-- Social links hidden until real URLs available -->
     </div>
 
     <div class="form-card fi">
@@ -1188,6 +1143,26 @@ document.getElementById('gNext').addEventListener('click', () => {
 document.getElementById('gPrev').addEventListener('click', () => {
   vp.scrollBy({ left: -cardW(), behavior: 'smooth' });
 });
+
+// ── Gallery touch/swipe ──
+let _gtx = 0, _gty = 0, _gDragging = false;
+vp.addEventListener('touchstart', e => {
+  _gtx = e.touches[0].clientX;
+  _gty = e.touches[0].clientY;
+  _gDragging = false;
+}, {passive: true});
+vp.addEventListener('touchmove', e => {
+  const dx = Math.abs(e.touches[0].clientX - _gtx);
+  const dy = Math.abs(e.touches[0].clientY - _gty);
+  if (dx > dy && dx > 10) _gDragging = true;
+}, {passive: true});
+vp.addEventListener('touchend', e => {
+  if (!_gDragging) return;
+  const dx = _gtx - e.changedTouches[0].clientX;
+  if (Math.abs(dx) > 50) {
+    vp.scrollBy({ left: dx > 0 ? cardW() : -cardW(), behavior: 'smooth' });
+  }
+}, {passive: true});
 
 // ── Parallax (scroll + mouse depth) ──
 const heroBg    = document.getElementById('heroBg');
