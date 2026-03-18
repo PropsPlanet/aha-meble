@@ -834,11 +834,11 @@
 <!-- ═══ DLA PROJEKTANTOW (B2B) ═══ -->
 <section id="b2b">
   <div class="b2b-inner">
-    <p class="b2b-label fi">Dla biur projektowych</p>
-    <h2 class="b2b-heading fi">Realizujemy Twoje projekty.<br>Dokładnie tak, jak je zaprojektowałeś.</h2>
+    <p class="b2b-label fi">Dla architektów i projektantów</p>
+    <h2 class="b2b-heading fi">Jeden wykonawca.<br>Wszystkie materiały pod jednym dachem.</h2>
     <p class="b2b-intro fi">
-      Współpracujemy z architektami i projektantami wnętrz z całego Trójmiasta.
-      Wiemy, że liczy się precyzja wykonania, terminowość i bezproblemowa komunikacja.
+      Wyślij model 3D — otworzymy go w PaletteCAD i wyciągniemy wymiary.
+      Nie musisz koordynować stolarza, kamieniarza, lakiernika i tapicera osobno.
     </p>
 
     <div class="b2b-grid fi">
@@ -846,22 +846,22 @@
         <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
         </svg>
-        <h3 class="b2b-card-title">Pracujemy z Twoimi plikami</h3>
-        <p class="b2b-card-desc">Przyjmujemy dokumentację w formatach DWG, DXF, PDF i rysunki odręczne. Przygotowujemy własną dokumentację techniczną do akceptacji przed produkcją.</p>
+        <h3 class="b2b-card-title">Otwieramy Twoje pliki</h3>
+        <p class="b2b-card-desc">DWG, DXF, modele 3D — otwieramy w PaletteCAD i Korpus. Wyślij model, my wyciągniemy wymiary i przygotujemy dokumentację produkcyjną. Bez rysunków w tę i z powrotem.</p>
+      </div>
+      <div class="b2b-card">
+        <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10M12 7v10"/>
+        </svg>
+        <h3 class="b2b-card-title">Łączymy materiały</h3>
+        <p class="b2b-card-desc">Drewno, fornir, kamień (spiek ceramiczny), metal, szkło, lakier NCS/RAL, malowanie proszkowe, laminat. Kamieniarz i lakiernia na miejscu. Frezowanie 5-osiowe przez zaufanego podwykonawcę.</p>
       </div>
       <div class="b2b-card">
         <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
         </svg>
-        <h3 class="b2b-card-title">Realne terminy, bez niespodzianek</h3>
-        <p class="b2b-card-desc">Podajemy konkretny termin realizacji i go dotrzymujemy. Typowa realizacja: 4-8 tygodni od akceptacji. Komunikacja o postępach na każdym etapie.</p>
-      </div>
-      <div class="b2b-card">
-        <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/>
-        </svg>
-        <h3 class="b2b-card-title">Zamówienia seryjne</h3>
-        <p class="b2b-card-desc">Obsługujemy powtarzalne zamówienia dla deweloperów i sieci obiektów. Stałe warunki cenowe, dedykowany opiekun i priorytet w harmonogramie produkcji.</p>
+        <h3 class="b2b-card-title">Od CNC do montażu</h3>
+        <p class="b2b-card-desc">CNC, oklejarka, nesting — cała linia produkcyjna in-house. Okucia Blum i Peka. Realizacja 4–8 tygodni. Jeden kontakt, jeden harmonogram, bez niespodzianek.</p>
       </div>
     </div>
   </div>
@@ -1050,11 +1050,18 @@
 // ── Gallery data ──
 const IMG = 'imgs/';
 const PROJECTS = [
-  { name: 'Brzezno', cat: 'Dom prywatny', imgs: [
-          IMG+'brzezno_01.jpg', IMG+'brzezno_02.jpg', IMG+'brzezno_03.jpg',
-          IMG+'brzezno_04.jpg', IMG+'brzezno_05.jpg', IMG+'brzezno_06.jpg',
+  // ── Flagowe: łączenie materiałów, detale ──
+  { name: 'Apartament Gdański', cat: 'Apartament · fornir · tapicerka · kamień', imgs: [
+          IMG+'chlebnicka_01.jpg', IMG+'chlebnicka_02.jpg', IMG+'chlebnicka_03.jpg',
+          IMG+'chlebnicka_04.jpg', IMG+'chlebnicka_05.jpg', IMG+'chlebnicka_06.jpg',
+          IMG+'chlebnicka_07.jpg',
       ] },
-  { name: 'Apartament Szary', cat: 'Apartament', imgs: [
+  { name: 'Dom Oliwski', cat: 'Dom prywatny · drewno · lakier · ceramika', imgs: [
+          IMG+'staraoliwa_02.jpg', IMG+'staraoliwa_03.jpg', IMG+'staraoliwa_01.jpg',
+          IMG+'staraoliwa_04.jpg', IMG+'staraoliwa_05.jpg', IMG+'staraoliwa_06.jpg',
+          IMG+'staraoliwa_07.jpg', IMG+'staraoliwa_08.jpg',
+      ] },
+  { name: 'Apartament Szary', cat: 'Apartament · fotograf', imgs: [
           IMG+'chmielna_05.jpg', IMG+'chmielna_02.jpg', IMG+'chmielna_03.jpg',
           IMG+'chmielna_04.jpg', IMG+'chmielna_06.jpg', IMG+'chmielna_07.jpg',
           IMG+'chmielna_08.jpg', IMG+'chmielna_01.jpg'] },
@@ -1062,44 +1069,33 @@ const PROJECTS = [
           IMG+'lesmiana_01.jpg', IMG+'lesmiana_02.jpg', IMG+'lesmiana_04.jpg',
           IMG+'lesmiana_03.jpg', IMG+'lesmiana_05.jpg', IMG+'lesmiana_06.jpg',
           IMG+'lesmiana_07.jpg', IMG+'lesmiana_08.jpg', IMG+'lesmiana_09.jpg'] },
-  { name: 'Osiedle Południe', cat: 'Dom prywatny', imgs: [
-          IMG+'romuald_01.jpg', IMG+'romuald_02.jpg', IMG+'romuald_03.jpg',
-          IMG+'romuald_04.jpg', IMG+'romuald_05.jpg', IMG+'romuald_06.jpg',
-          IMG+'romuald_07.jpg', IMG+'romuald_08.jpg', IMG+'romuald_09.jpg', IMG+'romuald_10.jpg',
-      ] },
-  { name: 'Nadmorski Dwór', cat: 'Dom prywatny', imgs: [
-          IMG+'nadmorski_04.jpg', IMG+'nadmorski_01.jpg', IMG+'nadmorski_05.jpg',
-          IMG+'nadmorski_03.jpg', IMG+'nadmorski_02.jpg',
-      ] },
-  // { name: 'Dom Norweski', cat: 'Dom prywatny', imgs: [
-  //         IMG+'norwegia_01.jpg', IMG+'norwegia_02.jpg', IMG+'norwegia_03.jpg',
-  //         IMG+'norwegia_04.jpg',
-  //     ] },
-  { name: 'Dom Piaseczno', cat: 'Dom prywatny', imgs: [
-          IMG+'piaseczno_01.jpg', IMG+'piaseczno_02.jpg', IMG+'piaseczno_03.jpg',
-          IMG+'piaseczno_04.jpg', IMG+'piaseczno_05.jpg', IMG+'piaseczno_06.jpg',
-          IMG+'piaseczno_07.jpg', IMG+'piaseczno_08.jpg',
-      ] },
+  // ── Solidne realizacje ──
   { name: 'Apartament Błękitny', cat: 'Apartament', imgs: [
           IMG+'migowko_01.jpg', IMG+'migowko_02.jpg', IMG+'migowko_03.jpg',
           IMG+'migowko_04.jpg', IMG+'migowko_05.jpg', IMG+'migowko_06.jpg',
           IMG+'migowko_07.jpg', IMG+'migowko_08.jpg',
       ] },
-  { name: 'Apartament Gdański', cat: 'Apartament', imgs: [
-          IMG+'chlebnicka_01.jpg', IMG+'chlebnicka_02.jpg', IMG+'chlebnicka_03.jpg',
-          IMG+'chlebnicka_04.jpg', IMG+'chlebnicka_05.jpg', IMG+'chlebnicka_06.jpg',
-          IMG+'chlebnicka_07.jpg',
+  { name: 'Osiedle Południe', cat: 'Dom prywatny', imgs: [
+          IMG+'romuald_01.jpg', IMG+'romuald_02.jpg', IMG+'romuald_03.jpg',
+          IMG+'romuald_04.jpg', IMG+'romuald_05.jpg', IMG+'romuald_06.jpg',
+          IMG+'romuald_07.jpg', IMG+'romuald_08.jpg', IMG+'romuald_09.jpg', IMG+'romuald_10.jpg',
       ] },
-  { name: 'Dom Oliwski', cat: 'Dom prywatny', imgs: [
-          IMG+'staraoliwa_01.jpg', IMG+'staraoliwa_02.jpg', IMG+'staraoliwa_03.jpg',
-          IMG+'staraoliwa_04.jpg', IMG+'staraoliwa_05.jpg', IMG+'staraoliwa_06.jpg',
-          IMG+'staraoliwa_07.jpg', IMG+'staraoliwa_08.jpg',
+  { name: 'Dom Piaseczno', cat: 'Dom prywatny', imgs: [
+          IMG+'piaseczno_01.jpg', IMG+'piaseczno_02.jpg', IMG+'piaseczno_03.jpg',
+          IMG+'piaseczno_04.jpg', IMG+'piaseczno_05.jpg', IMG+'piaseczno_06.jpg',
+          IMG+'piaseczno_07.jpg', IMG+'piaseczno_08.jpg',
+      ] },
+  { name: 'Brzezno', cat: 'Dom prywatny', imgs: [
+          IMG+'brzezno_01.jpg', IMG+'brzezno_02.jpg', IMG+'brzezno_03.jpg',
+          IMG+'brzezno_04.jpg', IMG+'brzezno_05.jpg', IMG+'brzezno_06.jpg',
       ] },
   { name: 'Salon Dziecięcy', cat: 'Obiekt publiczny', imgs: [
           IMG+'czuprynki_01.jpg', IMG+'czuprynki_02.jpg', IMG+'czuprynki_03.jpg',
           IMG+'czuprynki_04.jpg', IMG+'czuprynki_05.jpg', IMG+'czuprynki_06.jpg',
           IMG+'czuprynki_07.jpg',
       ] },
+  // Usunięte: Nadmorski Dwór (słabe zdjęcia WA 1064px)
+  // Usunięte: Dom Norweski (900px, niespójne)
   ];
 
 // ── Render gallery ──
