@@ -350,9 +350,10 @@
 
     /* ─── CASE STUDY ─── */
     #case-study {
-      background: var(--cream);
+      background: var(--off);
       padding: 0;
-      border-top: 1px solid var(--border-warm);
+      border-top: 1px solid rgba(117,68,55,.14);
+      border-bottom: 1px solid rgba(117,68,55,.14);
     }
     .cs-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -826,8 +827,14 @@
   max-width: 1100px; margin: 0 auto;
 }
 .b2b-label {
-  font-size: .62rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--verde); margin-bottom: 1.2rem;
+  font-size: .68rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--terra); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.b2b-label::before {
+  content: ''; display: block;
+  width: 28px; height: 1.5px;
+  background: var(--terra); opacity: .7;
 }
 .b2b-heading {
   font-family: 'Playfair Display', serif; font-style: normal;
@@ -836,41 +843,46 @@
   letter-spacing: -.008em; max-width: 780px;
 }
 .b2b-intro {
-  font-size: 1rem; color: var(--dark); line-height: 1.7;
-  max-width: 680px; margin-bottom: 3rem; opacity: .85;
+  font-size: 1.02rem; color: var(--dark); line-height: 1.7;
+  max-width: 560px; margin-bottom: 4rem; opacity: .78;
 }
 .b2b-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
   margin-bottom: 3.5rem;
 }
 .b2b-card {
-  background: var(--ivory); padding: 2.4rem 2rem;
-  border-top: 2px solid var(--terra);
-  border-radius: 0 0 2px 2px;
+  background: #ffffff;
+  padding: 2.6rem 2rem 3rem;
+  border-radius: 14px;
+  border-top: none;
   box-shadow:
-    0 0 0 1px var(--border-warm),
-    0 2px 8px rgba(26,24,20,.03),
-    0 8px 24px -8px rgba(26,24,20,.04);
-  transition: transform .25s ease, box-shadow .25s ease;
+    rgba(61,43,31,0.05) 0 2px 16px,
+    rgba(61,43,31,0.03) 0 1px 3px;
+  transition: box-shadow .35s ease, transform .35s ease;
+  position: relative;
+  min-height: 220px;
+  display: flex; flex-direction: column;
 }
 .b2b-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   box-shadow:
-    0 0 0 1px var(--terra),
-    0 4px 16px rgba(26,24,20,.06),
-    0 16px 32px -12px rgba(117,68,55,.08);
+    rgba(61,43,31,0.10) 0 8px 40px,
+    rgba(117,68,55,0.06) 0 2px 12px;
 }
-.b2b-card-icon {
-  width: 40px; height: 40px; margin-bottom: 1rem;
-  color: var(--terra); opacity: .7;
+.b2b-card-num {
+  font-size: .66rem; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--terra);
+  margin-bottom: 1.2rem; display: block;
 }
 .b2b-card-title {
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 1.3rem; font-weight: 400; color: var(--dark);
-  margin-bottom: .7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.08rem; font-weight: 600;
+  color: var(--dark); letter-spacing: -.008em;
+  margin-bottom: .7rem; line-height: 1.35;
 }
 .b2b-card-desc {
-  font-size: 1rem; color: var(--dark); line-height: 1.75; opacity: .88;
+  font-size: .88rem; color: var(--dark);
+  line-height: 1.65; opacity: .68;
 }
 .b2b-refs {
   border-top: 1px solid rgba(0,0,0,.08); padding-top: 2.5rem;
@@ -1078,25 +1090,19 @@
 
     <div class="b2b-grid fi">
       <div class="b2b-card">
-        <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-        </svg>
+        <span class="b2b-card-num">01 — Projekt</span>
         <h3 class="b2b-card-title">Otwieramy Twoje pliki</h3>
-        <p class="b2b-card-desc">DWG, DXF, STEP i modele 3D — otwieramy w PaletteCAD i Corpus. Wyślij model, my wyciągniemy wymiary i przygotujemy dokumentację produkcyjną. Bez obrotów projektowych.</p>
+        <p class="b2b-card-desc">DWG, DXF, STEP — otwieramy w PaletteCAD i Corpus. Wyciągamy wymiary, przygotowujemy dokumentację produkcyjną.</p>
       </div>
       <div class="b2b-card">
-        <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10M12 7v10"/>
-        </svg>
+        <span class="b2b-card-num">02 — Materiały</span>
         <h3 class="b2b-card-title">Łączymy materiały</h3>
-        <p class="b2b-card-desc">Drewno, fornir, kamień (spiek ceramiczny), metal, szkło, lakier NCS/RAL, malowanie proszkowe, laminat. Kamieniarz i lakiernia na miejscu. Frezowanie 5-osiowe przez zaufanego podwykonawcę.</p>
+        <p class="b2b-card-desc">Drewno, fornir, kamień, spiek, metal, szkło, tkanina. Kamieniarz, szklarz, lakiernik, tapicer — jeden harmonogram.</p>
       </div>
       <div class="b2b-card">
-        <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-        </svg>
+        <span class="b2b-card-num">03 — Produkcja</span>
         <h3 class="b2b-card-title">Od CNC do montażu</h3>
-        <p class="b2b-card-desc">CNC, oklejarka, nesting — cała linia produkcyjna in-house. Okucia Blum i Peka. Realizacja 4–8 tygodni. Jeden kontakt, jeden harmonogram, bez niespodzianek.</p>
+        <p class="b2b-card-desc">Cała linia produkcyjna in-house. Okucia Blum i Peka. Realizacja 4–8 tygodni. Jeden kontakt, jeden termin.</p>
       </div>
     </div>
   </div>
