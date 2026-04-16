@@ -77,14 +77,14 @@
       --verde:    #6B6751;
       --azul:     #28374A;
       --off:      #F5F3EF;
-      --cream:    #faf9f5;
-      --white:    #faf9f5;
-      --ivory:    #fdfcf8;
-      --dark:     #1a1814;
-      --ink:      #1a1814;
-      --muted:    #5e5d59;
-      --border-warm: #e8e6dc;
-      --ring: rgba(117,68,55,0.12);
+      --white:    #FFFFFF;
+      --dark:     #3D2B1F;
+      /* aliasy dla wstecznej zgodności w moich zmianach */
+      --cream:    #F5F3EF;
+      --ivory:    #FFFFFF;
+      --ink:      #3D2B1F;
+      --muted:    #6B6751;
+      --border-warm: rgba(117,68,55,0.14);
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -831,9 +831,9 @@
 }
 .b2b-heading {
   font-family: 'Playfair Display', serif; font-style: normal;
-  font-size: clamp(2.2rem, 3.8vw, 3.4rem); font-weight: 500;
-  color: var(--terra); line-height: 1.1; margin-bottom: 1rem;
-  letter-spacing: -.01em;
+  font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 500;
+  color: var(--terra); line-height: 1.12; margin-bottom: 1rem;
+  letter-spacing: -.008em; max-width: 780px;
 }
 .b2b-intro {
   font-size: 1rem; color: var(--dark); line-height: 1.7;
@@ -993,7 +993,7 @@
   <div class="hero-text-col">
     <div class="hero-content">
       <p class="hero-label">Portfolio — Realizacje</p>
-      <h1 class="hero-title">Meble na wymiar<br>dla wymagających.</h1>
+      <h1 class="hero-title">Meble na wymiar<br>dla wymagających</h1>
       <div class="hero-rule"></div>
       <p class="hero-sub">Pracujemy z biurami projektowymi, deweloperami i klientami prywatnymi. Drewno, kamień, metal, szkło, tkanina — pod jednym dachem. Oferta w 24 godziny.</p>
       <span class="btn-primary-wrap">
@@ -1070,7 +1070,7 @@
 <section id="b2b">
   <div class="b2b-inner">
     <p class="b2b-label fi">Dla architektów i projektantów</p>
-    <h2 class="b2b-heading fi">Jeden wykonawca.<br>Wszystkie materiały pod jednym dachem.</h2>
+    <h2 class="b2b-heading fi">Jeden wykonawca<br>Wszystkie materiały pod jednym dachem</h2>
     <p class="b2b-intro fi">
       Wyślij model 3D — otworzymy go w PaletteCAD i wyciągniemy wymiary.
       Nie musisz koordynować stolarza, kamieniarza, lakiernika i tapicera osobno.
@@ -1227,7 +1227,7 @@
 <section id="kontakt">
   <div class="k-grid">
     <div>
-      <h2 class="k-heading fi">Porozmawiajmy<br>o projekcie.</h2>
+      <h2 class="k-heading fi">Porozmawiajmy<br>o projekcie</h2>
       <div class="k-row fi">
         <p class="k-lbl">Email</p>
         <p class="k-val"><a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a></p>
