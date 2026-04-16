@@ -77,12 +77,25 @@
       --verde:    #6B6751;
       --azul:     #28374A;
       --off:      #F5F3EF;
-      --white:    #FFFFFF;
-      --dark:     #3D2B1F;
+      --cream:    #faf9f5;
+      --white:    #faf9f5;
+      --ivory:    #fdfcf8;
+      --dark:     #1a1814;
+      --ink:      #1a1814;
+      --muted:    #5e5d59;
+      --border-warm: #e8e6dc;
+      --ring: rgba(117,68,55,0.12);
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); }
+    body {
+      font-family: 'Inter', sans-serif; color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "ss01", "cv01", "liga";
+    }
 
     /* ─── NAV ─── */
     nav {
@@ -228,7 +241,7 @@
 
     /* ─── REALIZACJE ─── */
     #realizacje {
-      background: var(--white);
+      background: var(--ivory);
       padding: 7rem 0 4.5rem;
     }
     .sec-header {
@@ -782,8 +795,21 @@
   margin-bottom: 3.5rem;
 }
 .b2b-card {
-  background: var(--white); padding: 2rem 1.8rem;
-  border-top: 3px solid var(--terra);
+  background: var(--ivory); padding: 2.4rem 2rem;
+  border-top: 2px solid var(--terra);
+  border-radius: 0 0 2px 2px;
+  box-shadow:
+    0 0 0 1px var(--border-warm),
+    0 2px 8px rgba(26,24,20,.03),
+    0 8px 24px -8px rgba(26,24,20,.04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.b2b-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px var(--terra),
+    0 4px 16px rgba(26,24,20,.06),
+    0 16px 32px -12px rgba(117,68,55,.08);
 }
 .b2b-card-icon {
   width: 40px; height: 40px; margin-bottom: 1rem;
@@ -828,7 +854,7 @@
 
 /* ─── FAQ ─── */
 #faq {
-  background: var(--white); padding: 7.5rem 3.5rem;
+  background: var(--ivory); padding: 7.5rem 3.5rem;
 }
 .faq-inner {
   max-width: 800px; margin: 0 auto;
@@ -971,16 +997,16 @@
 <section id="case-study">
   <div class="cs-grid">
     <div class="cs-media fi">
-      <img src="imgs/romuald_01.jpg" alt="Osiedle Południe Garnizon — kuchnia na wymiar z chevronową podłogą, oliwkowa zabudowa. Realizacja AHA Meble.">
+      <img src="imgs/chmielna_05.jpg" alt="Apartament Szary — kuchnia z fornirem dębowym, kamiennym blatem i chevronową podłogą. Realizacja AHA Meble.">
     </div>
     <div class="cs-text fi">
-      <span class="sec-label">Case study — dom prywatny</span>
-      <h2 class="cs-title">Osiedle Południe</h2>
-      <span class="cs-meta">Garnizon · Gdańsk · 2025</span>
-      <p class="cs-desc">Kompleksowa zabudowa domu prywatnego — kuchnia, salon, łazienki, garderoby. Łączenie fornirów dębowych z rattanowymi frontami garderób, spiekiem ceramicznym w łazienkach (walec umywalkowy z jednego monolitu) i lakierem oliwkowym na kuchni. Chevronowa podłoga dębowa. Realizacja we współpracy z biurem projektowym — od modelu 3D po odbiór.</p>
+      <span class="sec-label">Case study — apartament</span>
+      <h2 class="cs-title">Apartament Szary</h2>
+      <span class="cs-meta">Gdańsk · sesja fotograficzna</span>
+      <p class="cs-desc">Kompleksowa zabudowa apartamentu premium. Fornir dębowy, blat z kamienia naturalnego, sztukateria na ścianach z zabudową wkomponowaną w architektoniczny detal pomieszczenia. Podłoga chevronowa dębowa. Spójna narracja materiałowa przez kuchnię, jadalnię i strefę dzienną.</p>
       <div class="cs-thumbs">
-        <img src="imgs/romuald_04.jpg" alt="Osiedle Południe — rattanowa garderoba" onclick="openGallery(4, 3)">
-        <img src="imgs/romuald_03.jpg" alt="Osiedle Południe — detal łazienki ze spiekiem" onclick="openGallery(4, 2)">
+        <img src="imgs/chmielna_02.jpg" alt="Apartament Szary — jadalnia" onclick="openGallery(0, 1)">
+        <img src="imgs/chmielna_04.jpg" alt="Apartament Szary — detal zabudowy" onclick="openGallery(0, 2)">
       </div>
       <a href="#kontakt" class="cs-cta">Wyceń projekt o podobnej skali →</a>
     </div>
