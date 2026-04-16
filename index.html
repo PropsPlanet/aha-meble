@@ -1050,21 +1050,12 @@
 // ── Gallery data ──
 const IMG = 'imgs/';
 const PROJECTS = [
-  // ── Flagowe: łączenie materiałów, detale ──
-  { name: 'Apartament Gdański', cat: 'Apartament · fornir · tapicerka · kamień', imgs: [
-          IMG+'chlebnicka_01.jpg', IMG+'chlebnicka_02.jpg', IMG+'chlebnicka_03.jpg',
-          IMG+'chlebnicka_04.jpg', IMG+'chlebnicka_05.jpg', IMG+'chlebnicka_06.jpg',
-          IMG+'chlebnicka_07.jpg',
-      ] },
-  { name: 'Dom Oliwski', cat: 'Dom prywatny · drewno · lakier · ceramika', imgs: [
-          IMG+'staraoliwa_02.jpg', IMG+'staraoliwa_03.jpg', IMG+'staraoliwa_01.jpg',
-          IMG+'staraoliwa_04.jpg', IMG+'staraoliwa_05.jpg', IMG+'staraoliwa_06.jpg',
-          IMG+'staraoliwa_07.jpg', IMG+'staraoliwa_08.jpg',
-      ] },
+  // Kolejność wg feedbacku ojca (15.04.2026):
+  // Gdański → koniec, Oliwski → przedostatnia, Szary → usunięte duplikujące chmielna_03
   { name: 'Apartament Szary', cat: 'Apartament · fotograf', imgs: [
-          IMG+'chmielna_05.jpg', IMG+'chmielna_02.jpg', IMG+'chmielna_03.jpg',
-          IMG+'chmielna_04.jpg', IMG+'chmielna_06.jpg', IMG+'chmielna_07.jpg',
-          IMG+'chmielna_08.jpg', IMG+'chmielna_01.jpg'] },
+          IMG+'chmielna_05.jpg', IMG+'chmielna_02.jpg', IMG+'chmielna_04.jpg',
+          IMG+'chmielna_06.jpg', IMG+'chmielna_07.jpg', IMG+'chmielna_08.jpg',
+          IMG+'chmielna_01.jpg'] },
   { name: 'Apartament Leśny', cat: 'Apartament', imgs: [
           IMG+'lesmiana_01.jpg', IMG+'lesmiana_02.jpg', IMG+'lesmiana_04.jpg',
           IMG+'lesmiana_03.jpg', IMG+'lesmiana_05.jpg', IMG+'lesmiana_06.jpg',
@@ -1097,6 +1088,16 @@ const PROJECTS = [
           IMG+'czuprynki_01.jpg', IMG+'czuprynki_02.jpg', IMG+'czuprynki_03.jpg',
           IMG+'czuprynki_04.jpg', IMG+'czuprynki_05.jpg', IMG+'czuprynki_06.jpg',
           IMG+'czuprynki_07.jpg',
+      ] },
+  { name: 'Dom Oliwski', cat: 'Dom prywatny · drewno · lakier · ceramika', imgs: [
+          IMG+'staraoliwa_02.jpg', IMG+'staraoliwa_03.jpg', IMG+'staraoliwa_01.jpg',
+          IMG+'staraoliwa_04.jpg', IMG+'staraoliwa_05.jpg', IMG+'staraoliwa_06.jpg',
+          IMG+'staraoliwa_07.jpg', IMG+'staraoliwa_08.jpg',
+      ] },
+  { name: 'Apartament Gdański', cat: 'Apartament · fornir · tapicerka · kamień', imgs: [
+          IMG+'chlebnicka_01.jpg', IMG+'chlebnicka_02.jpg', IMG+'chlebnicka_03.jpg',
+          IMG+'chlebnicka_04.jpg', IMG+'chlebnicka_05.jpg', IMG+'chlebnicka_06.jpg',
+          IMG+'chlebnicka_07.jpg',
       ] },
   // Usunięte: Nadmorski Dwór (słabe zdjęcia WA 1064px)
   // Usunięte: Dom Norweski (900px, niespójne)
