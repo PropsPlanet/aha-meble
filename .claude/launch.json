@@ -4,8 +4,8 @@
     {
       "name": "aha-meble",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8503", "-d", "/Users/adamharackiewicz/My Drive (harackiewicza@gmail.com)/02_MNW/deploy"],
-      "port": 8503
+      "runtimeArgs": ["-m", "http.server", "8765"],
+      "port": 8765
     }
   ]
 }

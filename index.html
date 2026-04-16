@@ -169,18 +169,31 @@
     /* staggered text reveal */
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(4.8rem, 11vw, 9.5rem);
-      font-weight: 400; font-style: italic;
-      line-height: 1; margin: 0;
+      font-size: clamp(2.6rem, 6vw, 5.6rem);
+      font-weight: 500; font-style: normal;
+      line-height: 1.05; margin: 0; letter-spacing: -.012em;
       text-shadow: 0 2px 40px rgba(0,0,0,.3);
       opacity: 0; transform: translateY(20px);
       animation: fadeUp .8s ease 2.1s forwards;
     }
+    .hero-label {
+      font-size: .72rem; font-weight: 500; letter-spacing: .32em;
+      text-transform: uppercase; color: rgba(255,255,255,.7);
+      margin-bottom: 1.8rem; opacity: 0;
+      animation: fadeUp .6s ease 1.8s forwards;
+    }
     .hero-sub {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400;
-      margin-bottom: 2.5rem; opacity: 0;
+      font-family: 'Playfair Display', serif; font-style: normal;
+      font-size: clamp(1.05rem, 1.75vw, 1.35rem); font-weight: 400;
+      line-height: 1.5;
+      margin: 1.8rem auto 2.4rem; opacity: 0; max-width: 560px;
       animation: fadeUp .8s ease 2.55s forwards;
+    }
+    .hero-meta {
+      font-size: .68rem; font-weight: 500; letter-spacing: .28em;
+      text-transform: uppercase; color: rgba(255,255,255,.55);
+      margin-top: 3.2rem; opacity: 0;
+      animation: fadeUp .6s ease 3.2s forwards;
     }
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
     .btn-primary-wrap { opacity: 0; animation: fadeUp .8s ease 2.9s forwards; display: inline-block; }
@@ -216,7 +229,7 @@
     /* ─── REALIZACJE ─── */
     #realizacje {
       background: var(--white);
-      padding: 5.5rem 0 3.5rem;
+      padding: 7rem 0 4.5rem;
     }
     .sec-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -224,7 +237,13 @@
     }
     .sec-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--dark);
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 500; font-style: normal;
+      color: var(--dark); letter-spacing: -.008em; line-height: 1.1;
+    }
+    .sec-label {
+      font-size: .7rem; font-weight: 600; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--verde);
+      margin-bottom: 1rem; display: block;
     }
     .gallery-ctrl { display: flex; align-items: center; gap: .6rem; }
     .g-btn {
@@ -289,14 +308,71 @@
 
     .ig-end { text-align: right; padding: 2rem 3.5rem 0; }
 
+    /* ─── CASE STUDY ─── */
+    #case-study {
+      background: var(--off);
+      padding: 8rem 3.5rem;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .cs-grid {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 58% 42%;
+      gap: 4.5rem; align-items: center;
+    }
+    .cs-media { position: relative; }
+    .cs-media img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      filter: saturate(.88);
+    }
+    .cs-text { padding-right: 1rem; }
+    .cs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 500; font-style: normal;
+      color: var(--dark); margin: 0.3rem 0 .6rem;
+      line-height: 1.05; letter-spacing: -.012em;
+    }
+    .cs-meta {
+      font-size: .7rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--verde); display: block; margin-bottom: 2rem;
+    }
+    .cs-desc {
+      font-size: 1rem; color: var(--dark); line-height: 1.75;
+      margin-bottom: 2.2rem; max-width: 480px;
+    }
+    .cs-thumbs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .7rem; max-width: 380px; margin-bottom: 2rem;
+    }
+    .cs-thumbs img {
+      width: 100%; aspect-ratio: 1/1; object-fit: cover;
+      cursor: pointer; filter: saturate(.88);
+      transition: filter .25s, transform .25s;
+    }
+    .cs-thumbs img:hover { filter: saturate(1); transform: scale(1.02); }
+    .cs-cta {
+      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--terra); text-decoration: none;
+      border-bottom: 1px solid var(--terra); padding-bottom: .35rem;
+      font-weight: 600; transition: color .2s, border-color .2s;
+      display: inline-block;
+    }
+    .cs-cta:hover { color: var(--terra-dk); border-color: var(--terra-dk); }
+    @media (max-width: 900px) {
+      #case-study { padding: 5rem 1.5rem; }
+      .cs-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .cs-text { padding-right: 0; }
+      .cs-thumbs { max-width: none; }
+    }
+
     /* ─── PROCES ─── */
     #proces {
-      background: var(--terra); padding: 6rem 3.5rem;
+      background: var(--terra); padding: 7.5rem 3.5rem;
       text-align: center;
     }
     #proces .sec-title {
-      font-style: italic; color: var(--white);
-      font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 1.2rem;
+      font-style: normal; color: var(--white); font-weight: 500;
+      font-size: clamp(2.6rem, 5vw, 4rem); margin-bottom: 1.2rem; letter-spacing: -.01em;
     }
     .badge {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -321,7 +397,7 @@
 
     /* ─── O NAS ─── */
     #o-nas {
-      background: var(--azul); padding: 7rem 3.5rem;
+      background: var(--azul); padding: 8rem 3.5rem;
       text-align: center;
     }
     .o-label {
@@ -329,9 +405,10 @@
       color: rgba(255,255,255,.45); margin-bottom: 2rem;
     }
     .o-quote {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 400;
-      color: var(--white); max-width: 800px; margin: 0 auto;
+      font-family: 'Playfair Display', serif; font-style: normal;
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem); font-weight: 400;
+      line-height: 1.5; letter-spacing: .002em;
+      color: rgba(255,255,255,.92); max-width: 760px; margin: 0 auto;
       line-height: 1.65; quotes: none;
     }
     .o-divider {
@@ -415,15 +492,16 @@
     }
 
     /* ─── KONTAKT ─── */
-    #kontakt { background: var(--areia); padding: 6rem 3.5rem; }
+    #kontakt { background: var(--areia); padding: 7.5rem 3.5rem; }
     .k-grid {
       display: grid; grid-template-columns: 1fr 1.35fr; gap: 5rem;
       max-width: 1100px; margin: 0 auto; align-items: start;
     }
     .k-heading {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 400;
-      color: var(--terra); line-height: 1.15; margin-bottom: 2.8rem;
+      font-family: 'Playfair Display', serif; font-style: normal;
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem); font-weight: 500;
+      color: var(--terra); line-height: 1.1; margin-bottom: 2.8rem;
+      letter-spacing: -.01em;
     }
     .k-row { margin-bottom: 1.6rem; }
     .k-lbl {
@@ -680,7 +758,7 @@
 
 /* ─── DLA PROJEKTANTOW (B2B) ─── */
 #b2b {
-  background: var(--off); padding: 6rem 3.5rem;
+  background: var(--off); padding: 7.5rem 3.5rem;
 }
 .b2b-inner {
   max-width: 1100px; margin: 0 auto;
@@ -690,9 +768,10 @@
   color: var(--verde); margin-bottom: 1.2rem;
 }
 .b2b-heading {
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 400;
-  color: var(--terra); line-height: 1.2; margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif; font-style: normal;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem); font-weight: 500;
+  color: var(--terra); line-height: 1.1; margin-bottom: 1rem;
+  letter-spacing: -.01em;
 }
 .b2b-intro {
   font-size: 1rem; color: var(--dark); line-height: 1.7;
@@ -749,15 +828,16 @@
 
 /* ─── FAQ ─── */
 #faq {
-  background: var(--white); padding: 6rem 3.5rem;
+  background: var(--white); padding: 7.5rem 3.5rem;
 }
 .faq-inner {
   max-width: 800px; margin: 0 auto;
 }
 .faq-heading {
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 400;
+  font-family: 'Playfair Display', serif; font-style: normal;
+  font-size: clamp(2.2rem, 3.6vw, 2.9rem); font-weight: 500;
   color: var(--dark); text-align: center; margin-bottom: .8rem;
+  letter-spacing: -.008em; line-height: 1.15;
 }
 .faq-sub {
   text-align: center; font-size: .95rem; color: var(--verde);
@@ -842,26 +922,16 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-headline">
-      <svg class="hero-mark" viewBox="0 0 88 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path class="a1"  d="M2 32 L14 2 L26 32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <line class="a1x" x1="7.4" y1="20" x2="20.6" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <line class="h1"  x1="36" y1="2" x2="36" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <line class="h2"  x1="50" y1="2" x2="50" y2="32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <line class="hx"  x1="36" y1="17" x2="50" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <path class="a2"  d="M60 32 L72 2 L84 32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <line class="a2x" x1="65.4" y1="20" x2="78.6" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      <div class="hero-divider"></div>
-      <h1 class="hero-title">Meble</h1>
-    </div>
-    <p class="hero-sub">Drewno, kamień, metal, szkło, tkanina — pod jednym dachem.<br>Dla biur projektowych i inwestorów prywatnych. Gdańsk.</p>
+    <p class="hero-label">Portfolio — Realizacje 2026</p>
+    <h1 class="hero-title">Meble na wymiar<br>dla wymagających.</h1>
+    <p class="hero-sub">Drewno, kamień, metal, szkło, tkanina — pod jednym dachem. Dla biur projektowych i inwestorów prywatnych premium.</p>
     <span class="btn-primary-wrap">
       <a href="#kontakt" class="btn-primary">
         Wyceń projekt w 24h
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </span>
+    <p class="hero-meta">Gdańsk · Trójmiasto · Warszawa</p>
   </div>
 </section>
 
@@ -897,6 +967,26 @@
     <div class="gallery-track" id="gTrack"></div>
   </div>
 
+</section>
+
+<!-- ═══ CASE STUDY ═══ -->
+<section id="case-study">
+  <div class="cs-grid">
+    <div class="cs-media fi">
+      <img src="imgs/dentus_01.jpg" alt="Klinika Dentus — recepcja z dębem ryflowanym, spiekiem i zieloną ścianą z mchu. Realizacja AHA Meble.">
+    </div>
+    <div class="cs-text fi">
+      <span class="sec-label">Projekt 01 / 10 — Case study</span>
+      <h2 class="cs-title">Klinika Dentus</h2>
+      <span class="cs-meta">Obiekt publiczny · Gdańsk</span>
+      <p class="cs-desc">Kompleksowa zabudowa recepcji i gabinetów kliniki stomatologicznej. Dąb ryflowany z frontami MDF lakierowanymi w kolorach identyfikacji wizualnej marki. Koordynacja z kamieniarzem (marmur na podłodze) i stolarzem zielonym (ściana z mchu stabilizowanego). Precyzja wykonania w środowisku komercyjnym o wysokim natężeniu użytkowania.</p>
+      <div class="cs-thumbs">
+        <img src="imgs/dentus_02.jpg" alt="Detal — gabinet Klinika Dentus" onclick="openGallery(4, 1)">
+        <img src="imgs/dentus_03.jpg" alt="Detal — szafki Klinika Dentus" onclick="openGallery(4, 2)">
+      </div>
+      <a href="#kontakt" class="cs-cta">Wyceń projekt o podobnej skali →</a>
+    </div>
+  </div>
 </section>
 
 <!-- ═══ PROCES ═══ -->
