@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AHA Meble — Meble na wymiar Gdańsk | Kuchnie, Szafy, Zabudowy na wymiar</title>
-  <meta name="description" content="Meble na wymiar z 15-letnim doświadczeniem stolarskim. Kuchnie, szafy, zabudowy — CNC i ręka mistrza. Pruszcz Gdański. Wycena w 24h.">
-  <link rel="canonical" href="https://aha-meble.vercel.app/">
+  <title>AHA Meble — Meble na wymiar dla architektów i inwestorów | Gdańsk</title>
+  <meta name="description" content="Stolarnia premium w Gdańsku. Drewno, kamień, metal, szkło, tkanina — jeden wykonawca, jeden harmonogram. Współpracujemy z biurami projektowymi. Wycena w 24h.">
+  <link rel="canonical" href="https://ahameble.pl/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AHA Meble — Meble na wymiar Gdańsk">
-  <meta property="og:description" content="15 lat stolarstwa. CNC + precyzja ręki mistrza. Kuchnie, szafy, zabudowy na wymiar dla biur projektowych i klientów prywatnych.">
-  <meta property="og:url" content="https://aha-meble.vercel.app/">
-  <meta property="og:image" content="https://aha-meble.vercel.app/imgs/brzezno_01.jpg">
+  <meta property="og:title" content="AHA Meble — Meble na wymiar dla architektów i inwestorów">
+  <meta property="og:description" content="Stolarnia premium w Gdańsku. Drewno, kamień, metal, szkło, tkanina — jeden wykonawca, jeden harmonogram. Dla biur projektowych i klientów prywatnych.">
+  <meta property="og:url" content="https://ahameble.pl/">
+  <meta property="og:image" content="https://ahameble.pl/imgs/chlebnicka_01.jpg">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="AHA Meble">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AHA Meble — Meble na wymiar Gdańsk">
-  <meta name="twitter:description" content="15 lat stolarstwa. CNC + precyzja ręki mistrza. Kuchnie, szafy, zabudowy na wymiar.">
-  <meta name="twitter:image" content="https://aha-meble.vercel.app/imgs/brzezno_01.jpg">
+  <meta name="twitter:title" content="AHA Meble — Meble na wymiar dla architektów i inwestorów">
+  <meta name="twitter:description" content="Stolarnia premium w Gdańsku. Drewno, kamień, metal, szkło, tkanina — jeden wykonawca, jeden harmonogram.">
+  <meta name="twitter:image" content="https://ahameble.pl/imgs/chlebnicka_01.jpg">
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
@@ -29,27 +33,27 @@
     "@type": "FurnitureStore",
     "name": "AHA Meble",
     "legalName": "MNW Sp. z o.o.",
-    "url": "https://aha-meble.vercel.app",
+    "url": "https://ahameble.pl",
     "telephone": "+48507027300",
     "email": "kontakt@ahameble.pl",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Batalionów Chłopskich 8",
-      "addressLocality": "Pruszcz Gdański",
-      "postalCode": "83-000",
+      "streetAddress": "Narwicka 10",
+      "addressLocality": "Gdańsk",
+      "postalCode": "80-557",
       "addressCountry": "PL"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 54.262,
-      "longitude": 18.636
+      "latitude": 54.3716,
+      "longitude": 18.6466
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.1",
-      "reviewCount": "39"
+      "ratingValue": "4.2",
+      "reviewCount": "35"
     },
-    "description": "Meble na wymiar — kuchnie, szafy, zabudowy. 15 lat doświadczenia, CNC + ręka stolarza. Pruszcz Gdański.",
+    "description": "Meble na wymiar dla architektów i klientów premium. Drewno, kamień, metal, szkło, tkanina — jeden wykonawca, jeden harmonogram. Hala produkcyjna w Gdańsku.",
     "priceRange": "$$",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -64,7 +68,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; adding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --terra:    #754437;
@@ -387,9 +391,27 @@
       font-size: .63rem; letter-spacing: .16em; text-transform: uppercase;
       color: rgba(255,255,255,.4); margin-top: -.5rem;
     }
+    .o-team-desc {
+      max-width: 760px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: .95rem;
+    }
+    .o-team-desc p {
+      color: rgba(255,255,255,.72);
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.05rem;
+      line-height: 1.55; text-align: center;
+    }
+    .o-team-desc p strong {
+      color: var(--white);
+      font-weight: 500; font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      letter-spacing: .02em;
+    }
     @media (max-width: 700px) {
       .o-hala { grid-template-columns: 1fr; }
       .o-team { gap: 3rem; }
+      .o-team-desc p { font-size: .95rem; text-align: left; }
     }
 
     /* ─── KONTAKT ─── */
@@ -452,13 +474,76 @@
       transition: background .2s;
     }
     .f-submit:hover { background: var(--terra-dk); }
+    .f-submit:disabled { opacity: .55; cursor: default; }
+    .f-rodo { margin-top: .3rem; }
+    .f-check {
+      display: flex; align-items: flex-start; gap: .7rem;
+      font-size: .78rem; color: var(--verde); line-height: 1.45;
+      cursor: pointer;
+    }
+    .f-check input[type="checkbox"] {
+      width: 17px; height: 17px; flex-shrink: 0; margin-top: .1rem;
+      accent-color: var(--terra); cursor: pointer;
+    }
+    .f-check a { color: var(--terra); text-decoration: underline; }
+    .f-check a:hover { color: var(--terra-dk); }
+    select.f-input {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23754437' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1.2rem center;
+      padding-right: 2.8rem;
+    }
+    .f-success {
+      padding: 1.2rem; background: rgba(107,103,81,.1);
+      border: 1px solid var(--verde); border-radius: 4px;
+      color: var(--verde); font-size: .95rem; line-height: 1.5;
+      text-align: center;
+    }
+    .f-success strong { display: block; font-size: 1.1rem; color: var(--terra); margin-bottom: .4rem; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    /* ─── MAT STRIP (materiały) ─── */
+    #mat-strip {
+      background: var(--off);
+      padding: 1.4rem 3.5rem;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .mat-inner {
+      max-width: 1300px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .mat-lbl {
+      font-size: .7rem; font-weight: 600; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--verde); white-space: nowrap;
+    }
+    .mat-items {
+      display: flex; gap: 1.4rem; flex-wrap: wrap; align-items: center;
+    }
+    .mat-item {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .88rem; color: var(--dark); font-weight: 500;
+    }
+    .mat-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--terra);
+    }
+    @media (max-width: 768px) {
+      #mat-strip { padding: 1.1rem 1.5rem; }
+      .mat-inner { gap: 1rem; }
+      .mat-items { gap: 1rem; }
+      .mat-item { font-size: .78rem; }
+    }
 
     /* ─── FOOTER ─── */
     footer {
       background: var(--areia); border-top: 1px solid rgba(0,0,0,.1);
-      padding: 1.4rem 3.5rem; text-align: center;
+      padding: 2.2rem 3.5rem 1.4rem; text-align: center;
     }
-    footer p { font-size: .68rem; color: var(--verde); letter-spacing: .08em; }
+    footer p { font-size: .72rem; color: var(--verde); letter-spacing: .06em; line-height: 1.7; }
+    footer a { color: var(--verde); text-decoration: none; border-bottom: 1px solid rgba(107,103,81,.3); transition: color .2s; }
+    footer a:hover { color: var(--terra); border-bottom-color: var(--terra); }
+    .foot-row { margin-bottom: .5rem; }
+    .foot-sep { color: rgba(107,103,81,.4); margin: 0 .4rem; }
 
     /* ─── MODAL ─── */
     .modal {
@@ -753,7 +838,7 @@
 <!-- ═══ HERO ═══ -->
 <section id="hero">
   <div class="hero-bg" id="heroBg">
-    <img class="hero-video" src="imgs/lesmiana_01.jpg" alt="Kuchnia na wymiar — realizacja AHA Meble">
+    <img class="hero-video" src="imgs/chlebnicka_01.jpg" alt="Apartament Gdański — zabudowa łącząca fornir, tapicerkę i kamień. Realizacja AHA Meble.">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -770,13 +855,27 @@
       <div class="hero-divider"></div>
       <h1 class="hero-title">Meble</h1>
     </div>
-    <p class="hero-sub">15 lat rzemiosła. Precyzja CNC. Każdy projekt jedyny w swoim rodzaju.</p>
+    <p class="hero-sub">Drewno, kamień, metal, szkło, tkanina — pod jednym dachem.<br>Dla biur projektowych i inwestorów prywatnych. Gdańsk.</p>
     <span class="btn-primary-wrap">
-      <a href="#realizacje" class="btn-primary">
-        Zobacz realizacje
+      <a href="#kontakt" class="btn-primary">
+        Wyceń projekt w 24h
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </span>
+  </div>
+</section>
+
+<!-- ═══ PASEK MATERIAŁÓW ═══ -->
+<section id="mat-strip" aria-label="Materiały">
+  <div class="mat-inner">
+    <span class="mat-lbl fi">Pod jednym dachem</span>
+    <div class="mat-items">
+      <span class="mat-item"><span class="mat-dot"></span>Drewno i fornir</span>
+      <span class="mat-item"><span class="mat-dot"></span>Kamień i spiek</span>
+      <span class="mat-item"><span class="mat-dot"></span>Metal i stal</span>
+      <span class="mat-item"><span class="mat-dot"></span>Szkło i lustra</span>
+      <span class="mat-item"><span class="mat-dot"></span>Tapicerka i tkaniny</span>
+    </div>
   </div>
 </section>
 
@@ -810,23 +909,23 @@
   <div class="steps fi">
     <div class="step">
       <div class="step-num">01</div>
-      <div class="step-lbl">Konsultacja</div>
-      <p class="step-desc">Spotkanie lub rozmowa telefoniczna. Omawiamy Twój projekt, potrzeby, materiały i budżet. Przyjmujemy projekty od biur projektowych i klientów indywidualnych.</p>
+      <div class="step-lbl">Projekt i wycena</div>
+      <p class="step-desc">Wyślij DWG, DXF, STEP lub rysunek odręczny. Otworzymy w PaletteCAD lub Corpus, wyciągniemy wymiary, przygotujemy ofertę w 24 godziny — z rozpisanymi materiałami, podwykonawcami i terminem.</p>
     </div>
     <div class="step">
       <div class="step-num">02</div>
-      <div class="step-lbl">Wycena</div>
-      <p class="step-desc">Przejrzysta oferta w ciągu 24 godzin. Bez ukrytych kosztów. Pracujemy na podstawie Twoich rysunków lub przygotujemy własny projekt techniczny.</p>
+      <div class="step-lbl">Pomiary i umowa</div>
+      <p class="step-desc">Pomiary u Ciebie lub na budowie po akceptacji wyceny. Umowa z rozpisanymi etapami płatności (zaliczka 40%, przed montażem 50%, odbiór 10%). Harmonogram podpisany przez obie strony.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-lbl">Produkcja</div>
-      <p class="step-desc">Precyzja maszyn CNC połączona z doświadczeniem ręki stolarza. Kontrola jakości na każdym etapie — od rozkroju po oklejanie i montaż podzespołów.</p>
+      <p class="step-desc">Rozkrój na CNC z etykietowaniem, oklejarka krawędzi z PUR, nesting. Fronty MDF lakierowane NCS/RAL u naszego lakiernika. Kamień, szkło, tapicerka — zaufani podwykonawcy pod jednym harmonogramem. Okucia Blum i Peka.</p>
     </div>
     <div class="step">
       <div class="step-num">04</div>
-      <div class="step-lbl">Montaż</div>
-      <p class="step-desc">Terminowa dostawa i profesjonalna instalacja u Ciebie. Nasz zespół montażowy dba o każdy detal — od regulacji zawiasów po finalne sprzątanie.</p>
+      <div class="step-lbl">Montaż i odbiór</div>
+      <p class="step-desc">Transport i montaż we własnym zakresie. Protokół odbioru końcowego. Gwarancja 24 miesiące na wykonanie, gwarancje producentów na okucia (Blum — dożywotnia na prowadnice).</p>
     </div>
   </div>
 </section>
@@ -847,7 +946,7 @@
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
         </svg>
         <h3 class="b2b-card-title">Otwieramy Twoje pliki</h3>
-        <p class="b2b-card-desc">DWG, DXF, modele 3D — otwieramy w PaletteCAD i Korpus. Wyślij model, my wyciągniemy wymiary i przygotujemy dokumentację produkcyjną. Bez rysunków w tę i z powrotem.</p>
+        <p class="b2b-card-desc">DWG, DXF, STEP i modele 3D — otwieramy w PaletteCAD i Corpus. Wyślij model, my wyciągniemy wymiary i przygotujemy dokumentację produkcyjną. Bez obrotów projektowych.</p>
       </div>
       <div class="b2b-card">
         <svg class="b2b-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -871,31 +970,22 @@
 <section id="o-nas">
   <p class="o-label fi">O AHA Meble</p>
   <p class="o-quote fi">
-    Zaczynaliśmy w małym warsztacie w Pruszczu Gdańskim. Dziś, po 15 latach,
-    mamy halę produkcyjną z maszynami CNC — ale nadal każdy mebel przechodzi
-    przez ręce doświadczonego stolarza. Łączymy precyzję technologii
-    z rzemiosłem, które nie znosi kompromisów.
+    Stolarnia z Gdańska. 15 lat doświadczenia. Hala produkcyjna z linią CNC,
+    oklejarką PUR i miejscem na nową linię Blue Elephant — dochodzi w tym kwartale.
+    Dziesięcioosobowy zespół. Każdy projekt prowadzi jedna osoba —
+    od pomiaru przez produkcję po odbiór. Z architektami mówimy ich językiem:
+    DWG, DXF, PaletteCAD, Corpus. Z klientami prywatnymi — terminami i gwarancją.
   </p>
 
   <div class="o-divider"></div>
 
   <!-- Zespół -->
-  <p class="o-team-label fi">Ludzie za projektem</p>
-  <div class="o-team fi">
-    <div class="o-person">
-      <div class="o-avatar o-avatar-placeholder">
-        <span class="o-avatar-initials">AH</span>
-      </div>
-      <p class="o-person-name">Andrzej Harackiewicz</p>
-      <p class="o-person-role">Mistrz stolarski · Założyciel</p>
-    </div>
-    <div class="o-person">
-      <div class="o-avatar o-avatar-placeholder">
-        <span class="o-avatar-initials">AH</span>
-      </div>
-      <p class="o-person-name">Adam Harackiewicz</p>
-      <p class="o-person-role">Projektowanie · Realizacje</p>
-    </div>
+  <p class="o-team-label fi">Zespół</p>
+  <div class="o-team-desc fi">
+    <p><strong>Andrzej Harackiewicz</strong> — właściciel, mistrz stolarski. Prowadzi produkcję od pomiaru po montaż.</p>
+    <p><strong>Anastazja, Hania</strong> — biuro. Wyceny, kontakt z architektami, koordynacja zleceń.</p>
+    <p><strong>Dima</strong> — brygadzista. Projekty w PaletteCAD i Corpus, pomiary, montaż.</p>
+    <p><strong>Denis, Marcin, Roman, Aleksander K., Aleksander T., Aleksij</strong> — warsztat. Rozkrój, oklejanie, CNC, składanie.</p>
   </div>
 </section>
 
@@ -921,7 +1011,27 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
       <div class="faq-a">
-        <p>Pracujemy z plikami DWG, DXF, PDF oraz rysunkami odręcznymi z wymiarami. Na podstawie dokumentacji przygotowujemy własny rysunek techniczny do akceptacji przed rozpoczęciem produkcji.</p>
+        <p>DWG, DXF, STEP, PDF oraz rysunki odręczne z wymiarami. Otwieramy pliki w PaletteCAD i Corpus. Na podstawie dokumentacji przygotowujemy własny rysunek techniczny do akceptacji przed rozpoczęciem produkcji. Jeśli nie masz projektu — zrobimy pomiar i zaproponujemy rozwiązanie.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fi">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Ile kosztuje zabudowa? Jakie są widełki cenowe?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Orientacyjne widełki dla realizacji premium: pojedyncza zabudowa (szafa, przedpokój) od 8-20 tys. zł. Kuchnia na wymiar: 30-80 tys. zł. Kompleksowa zabudowa apartamentu (kilka pomieszczeń): 120-300 tys. zł. Konkretną wycenę podajemy po zapoznaniu się z projektem — w ciągu 24 godzin od otrzymania dokumentacji.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fi">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Jaka jest gwarancja na wykonanie i okucia?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>24 miesiące na wykonanie stolarskie. Na okucia — gwarancje producenckie: Blum oferuje dożywotnią gwarancję na mechanizmy szuflad Tandembox i Merivobox, 10 lat na zawiasy. Peka — 10 lat. Reklamacje rozpatrujemy w ciągu 7 dni roboczych, serwis u klienta zawsze we własnym zakresie.</p>
       </div>
     </div>
 
@@ -941,7 +1051,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
       <div class="faq-a">
-        <p>Głównie Trójmiasto i okolice (Pruszcz Gdański, Tczew, Starogard). Realizujemy też projekty na terenie całego Pomorza — w wyjątkowych przypadkach także dalej. Montaż zawsze we własnym zakresie.</p>
+        <p>Trójmiasto, Pomorze, Warszawa — te rejony obsługujemy regularnie. Dalej (Bydgoszcz, Łódź, Poznań) realizujemy projekty o większej skali. Montaż zawsze naszym zespołem, pomiary u klienta lub na budowie.</p>
       </div>
     </div>
 
@@ -951,7 +1061,17 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </button>
       <div class="faq-a">
-        <p>Płyty meblowe (Egger, Kronospan, Pfleiderer), MDF lakierowany, fornir naturalny, lite drewno (dąb, jesion, orzech). Blaty: laminat HPL, quartz, konglomerat. Okucia: Blum, Hettich, GTV. Dobierzemy materiał do budżetu i projektu.</p>
+        <p>Płyty meblowe, MDF prosty i frezowany, lakier NCS/RAL, fornir naturalny (dąb, jesion, orzech), lite drewno. Blaty: laminat, spiek ceramiczny (np. blat z umywalką z jednego monolitu), konglomerat. Okucia: Blum (szuflady, zawiasy), Peka (cargo, kosze). Kamień, szkło i tkaniny — przez naszych zaufanych podwykonawców, koordynowanych z jednego harmonogramu.</p>
+      </div>
+    </div>
+
+    <div class="faq-item fi">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Czy koordynujecie prace podwykonawców (kamień, szkło, tapicerka)?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Tak — to nasz główny wyróżnik. Kamieniarz, szklarz, tapicer i lakiernik to nasi stali partnerzy. Koordynujemy ich prace pod jednym harmonogramem. Architekt lub klient ma jedną osobę kontaktową po naszej stronie. Wszystkie materiały składają się u nas lub na montażu — bez dodatkowych transportów przez Ciebie.</p>
       </div>
     </div>
 
@@ -981,17 +1101,17 @@
         <p class="k-val"><a href="tel:+48507027300">507 027 300</a></p>
       </div>
       <div class="k-row fi">
-        <p class="k-lbl">Adres</p>
-        <p class="k-val">Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
+        <p class="k-lbl">Hala produkcyjna</p>
+        <p class="k-val">Narwicka 10<br>80-557 Gdańsk</p>
         <a class="maps-btn" href="https://maps.app.goo.gl/wpwQqgugD1sZPP" target="_blank" rel="noopener">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Zobacz na Google Maps
         </a>
-        <p class="k-grating">★ 4,1 &nbsp;·&nbsp; <a href="https://maps.app.goo.gl/wpwQqgugD1sZPP" target="_blank" rel="noopener">39 opinii na Google ↗</a></p>
+        <p class="k-grating">★ 4,2 &nbsp;·&nbsp; <a href="https://maps.app.goo.gl/wpwQqgugD1sZPP" target="_blank" rel="noopener">35 opinii na Google ↗</a></p>
       </div>
       <div class="k-row fi">
-        <p class="k-lbl">NIP</p>
-        <p class="k-val">957 106 71 37</p>
+        <p class="k-lbl">Dane firmy</p>
+        <p class="k-val">MNW Sp. z o.o.<br>NIP 957 106 71 37 · REGON 221790146<br>KRS 0000441826</p>
       </div>
       <!-- Social links hidden until real URLs available -->
     </div>
@@ -999,22 +1119,38 @@
     <div class="form-card fi">
       <div class="form-top-bar"></div>
       <div class="form-inner">
-        <form id="contactForm" onsubmit="submitForm(event)">
+        <form id="contactForm" action="https://formspree.io/f/FORMSPREE_ID_PLACEHOLDER" method="POST" onsubmit="return submitForm(event)">
           <div class="f-group">
-            <label class="f-lbl" for="fname">Imię</label>
-            <input class="f-input" type="text" id="fname" placeholder="Jan Kowalski" required>
+            <label class="f-lbl" for="ftype">Jestem</label>
+            <select class="f-input" id="ftype" name="typ_kontaktu" required>
+              <option value="">— wybierz —</option>
+              <option value="Architekt/biuro projektowe">Architekt / biuro projektowe</option>
+              <option value="Klient prywatny">Klient prywatny</option>
+              <option value="Deweloper/inwestor">Deweloper / inwestor</option>
+              <option value="Inne">Inne</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label class="f-lbl" for="fname">Imię i nazwisko</label>
+            <input class="f-input" type="text" id="fname" name="imie" placeholder="Jan Kowalski" required>
           </div>
           <div class="f-group">
             <label class="f-lbl" for="femail">Email</label>
-            <input class="f-input" type="email" id="femail" placeholder="jan@biuro.pl" required>
+            <input class="f-input" type="email" id="femail" name="email" placeholder="jan@biuro.pl" required>
           </div>
           <div class="f-group">
             <label class="f-lbl" for="fphone">Telefon (opcjonalnie)</label>
-            <input class="f-input" type="tel" id="fphone" placeholder="+48 500 000 000">
+            <input class="f-input" type="tel" id="fphone" name="telefon" placeholder="+48 500 000 000">
           </div>
           <div class="f-group">
             <label class="f-lbl" for="fmsg">Projekt</label>
-            <textarea class="f-ta" id="fmsg" placeholder="Opisz swój projekt — rodzaj mebla, wymiary, materiał, termin..." required></textarea>
+            <textarea class="f-ta" id="fmsg" name="wiadomosc" placeholder="Opisz swój projekt — rodzaj mebla, wymiary, materiały, orientacyjny termin. Jeśli masz rysunki lub projekt — wspomnij, odpiszemy z prośbą o przesłanie." required></textarea>
+          </div>
+          <div class="f-group f-rodo">
+            <label class="f-check">
+              <input type="checkbox" id="frodo" name="zgoda_rodo" required>
+              <span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez MNW Sp. z o.o. w celu odpowiedzi na zapytanie. <a href="/polityka-prywatnosci.html" target="_blank">Polityka prywatności</a></span>
+            </label>
           </div>
           <button type="submit" class="f-submit" id="fBtn">
             Wyślij wiadomość
@@ -1029,7 +1165,10 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <p>© 2026 AHA Meble &nbsp;·&nbsp; MNW Sp. z o.o. &nbsp;·&nbsp; NIP: 957 106 71 37 &nbsp;·&nbsp; Batalionów Chłopskich 8, 83-000 Pruszcz Gdański</p>
+  <p class="foot-row"><strong>AHA Meble</strong> <span class="foot-sep">·</span> Meble na wymiar <span class="foot-sep">·</span> Gdańsk</p>
+  <p class="foot-row">Hala produkcyjna: Narwicka 10, 80-557 Gdańsk <span class="foot-sep">·</span> <a href="tel:+48507027300">507 027 300</a> <span class="foot-sep">·</span> <a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a></p>
+  <p class="foot-row">MNW Sp. z o.o. <span class="foot-sep">·</span> ul. Batalionów Chłopskich 8, 83-000 Pruszcz Gdański <span class="foot-sep">·</span> NIP: 957 106 71 37 <span class="foot-sep">·</span> REGON: 221790146 <span class="foot-sep">·</span> KRS: 0000441826</p>
+  <p class="foot-row"><a href="/polityka-prywatnosci.html">Polityka prywatności</a> <span class="foot-sep">·</span> © 2026 AHA Meble. Wszelkie prawa zastrzeżone.</p>
 </footer>
 
 <!-- ═══ MODAL ═══ -->
@@ -1292,18 +1431,39 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
 // ── Form ──
-function submitForm(e) {
+async function submitForm(e) {
   e.preventDefault();
+  const form = e.target;
   const btn = document.getElementById('fBtn');
-  btn.textContent = '✓ Wiadomość wysłana!';
-  btn.style.background = '#4a7c59';
+  const btnOrig = btn.innerHTML;
+
   btn.disabled = true;
-  setTimeout(() => {
-    btn.innerHTML = 'Wyślij wiadomość <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
-    btn.style.background = '';
+  btn.textContent = 'Wysyłanie...';
+
+  try {
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      const card = document.querySelector('.form-inner');
+      card.innerHTML = `
+        <div class="f-success">
+          <strong>Wiadomość wysłana.</strong>
+          Odpowiemy w ciągu 24 godzin. Dziękujemy za kontakt z AHA Meble.
+        </div>`;
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    btn.innerHTML = btnOrig;
     btn.disabled = false;
-    document.getElementById('contactForm').reset();
-  }, 4000);
+    alert('Nie udało się wysłać wiadomości. Proszę spróbować ponownie lub napisać bezpośrednio na kontakt@ahameble.pl');
+  }
+  return false;
 }
 </script>
 </body>
