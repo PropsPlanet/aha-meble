@@ -1202,14 +1202,14 @@ html.js-ready .fi.v { transform: translateY(0); }
 <section id="realizacje">
   <div class="real-head">
     <div>
-      <p class="sec-label fi">realizacje <span>— katalog 2019–2025</span></p>
+      <p class="sec-label fi">realizacje <span>— wybrane 2021–2024</span></p>
       <h2 class="sec-heading fi">
         osiem<br>
         <em>wybranych</em><br>
         projektów.
       </h2>
     </div>
-    <p class="count fi"><strong>08</strong> realizacji<br>~70 zdjęć</p>
+    <p class="count fi"><strong>08</strong> realizacji<br>~70 zdjęć<br><span style="color:var(--terra-2)">+ 6 w toku 2025–2026</span></p>
   </div>
 
   <div class="real-list" id="realList"></div>
@@ -1246,11 +1246,7 @@ html.js-ready .fi.v { transform: translateY(0); }
     </div>
   </div>
 
-  <div class="cs-thumbs fi">
-    <img src="imgs/chmielna_02.jpg" alt="Apartament Szary — jadalnia" data-cs="1">
-    <img src="imgs/chmielna_04.jpg" alt="Apartament Szary — detal zabudowy" data-cs="2">
-    <img src="imgs/chmielna_06.jpg" alt="Apartament Szary — strefa dzienna" data-cs="3">
-  </div>
+  <div class="cs-thumbs fi" id="csThumbs"></div>
 </section>
 
 <!-- ═══ DLA PROJEKTANTÓW ═══ -->
@@ -1591,10 +1587,18 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') modalStep(1);
 });
 
-// Case study thumbs — open case gallery
-document.querySelectorAll('.cs-thumbs img').forEach((img, idx) => {
-  img.addEventListener('click', () => openGallery(0, idx+1));
-});
+// Case study thumbs — generuj z galerii Apartamentu Szarego (projekt 0) bez hero (index 0)
+const csThumbs = document.getElementById('csThumbs');
+if (csThumbs) {
+  PROJECTS[0].imgs.slice(1).forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Apartament Szary — zdjęcie ${i+2}`;
+    img.loading = 'lazy';
+    img.addEventListener('click', () => openGallery(0, i+1));
+    csThumbs.appendChild(img);
+  });
+}
 
 // ═══ FAQ toggle ═══
 function toggleFaq(btn) {
