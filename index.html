@@ -1045,9 +1045,10 @@ footer {
   .modal-nav.next { right: .5rem; }
 }
 
-/* fadeup animation */
-.fi { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
-.fi.v { opacity: 1; transform: translateY(0); }
+/* fadeup — subtle transform only, content always visible */
+.fi { transition: transform .8s ease; }
+html.js-ready .fi:not(.v) { transform: translateY(14px); }
+html.js-ready .fi.v { transform: translateY(0); }
 </style>
 </head>
 
@@ -1553,6 +1554,7 @@ document.querySelectorAll('.nav-mobile a').forEach(a => {
 });
 
 // ═══ Scroll-in fade ═══
+document.documentElement.classList.add('js-ready');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
