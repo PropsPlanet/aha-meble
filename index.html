@@ -66,9 +66,10 @@
   /* aliasy dark scene */
   --bg:       var(--azul);
   --bg-2:     var(--azul-dk);
+  --bg-verde: var(--verde);
   --fg:       var(--areia);
-  --fg-soft:  rgba(211,199,173,0.62);
-  --fg-dim:   rgba(211,199,173,0.38);
+  --fg-soft:  rgba(211,199,173,0.72);
+  --fg-dim:   rgba(211,199,173,0.42);
   --line:     rgba(211,199,173,0.13);
   --line-2:   rgba(211,199,173,0.24);
 
@@ -373,7 +374,7 @@ body.mnav-open .nav-mobile { display: flex; }
 
 /* ═══ REALIZACJE (catalog — numbered full-bleed strips) ═══ */
 #realizacje {
-  background: var(--bg);
+  background: var(--bg-2);
   border-top: 1px solid var(--line);
 }
 .sec-label {
@@ -429,7 +430,7 @@ body.mnav-open .nav-mobile { display: flex; }
   transition: background .4s ease, padding .4s ease;
 }
 .real-item:hover {
-  background: var(--bg-2);
+  background: var(--bg);
 }
 .real-item .r-num {
   font-size: .85rem; font-weight: 500;
@@ -596,7 +597,7 @@ body.mnav-open .nav-mobile { display: flex; }
 #b2b {
   background: var(--bg);
   padding: 10rem 2.4rem;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--terra);
 }
 .b2b-inner {
   max-width: 1400px; margin: 0 auto;
@@ -651,11 +652,41 @@ body.mnav-open .nav-mobile { display: flex; }
   .b2b-step .num { padding: 0; }
 }
 
-/* ═══ O NAS ═══ */
+/* ═══ O NAS (verde opaco — trzeci ton z moodboardu) ═══ */
 #o-nas {
-  background: var(--bg-2);
+  background: var(--bg-verde);
+  color: #F5F0E6;
   padding: 10rem 2.4rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(245,240,230,0.14);
+}
+#o-nas .sec-label,
+#o-nas .sec-heading,
+#o-nas .o-story,
+#o-nas .o-stat .n,
+#o-nas .o-stat .l,
+#o-nas .o-team-label,
+#o-nas .o-row .who,
+#o-nas .o-row .what {
+  color: #F5F0E6;
+}
+#o-nas .sec-label,
+#o-nas .o-team-label {
+  color: rgba(245,240,230,0.68);
+}
+#o-nas .o-story em,
+#o-nas .sec-heading em,
+#o-nas .o-stat .l,
+#o-nas .o-row .what {
+  color: rgba(245,240,230,0.72);
+}
+#o-nas .o-stats,
+#o-nas .o-team,
+#o-nas .o-row {
+  border-color: rgba(245,240,230,0.18);
+}
+#o-nas .sec-label::before,
+#o-nas .o-team-label::before {
+  background: #F5F0E6;
 }
 .o-inner { max-width: 1100px; margin: 0 auto; }
 .o-story {
@@ -726,7 +757,7 @@ body.mnav-open .nav-mobile { display: flex; }
 
 /* ═══ FAQ ═══ */
 #faq {
-  background: var(--bg);
+  background: var(--bg-2);
   padding: 10rem 2.4rem;
   border-top: 1px solid var(--line);
 }
