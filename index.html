@@ -32,9 +32,9 @@
     "url": "https://ahameble.pl",
     "telephone": "+48507027300",
     "email": "kontakt@ahameble.pl",
-    "address": {"@type": "PostalAddress", "streetAddress": "Narwicka 10", "addressLocality": "Gdańsk", "postalCode": "80-557", "addressCountry": "PL"},
-    "geo": {"@type": "GeoCoordinates", "latitude": 54.3716, "longitude": 18.6466},
-    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "35"},
+    "address": {"@type": "PostalAddress", "streetAddress": "ul. Batalionów Chłopskich 8", "addressLocality": "Pruszcz Gdański", "postalCode": "83-000", "addressCountry": "PL"},
+    "geo": {"@type": "GeoCoordinates", "latitude": 54.2455, "longitude": 18.6296},
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "40"},
     "description": "Meble na wymiar dla architektów i klientów premium. Drewno, kamień, metal, szkło, tkanina — jeden wykonawca.",
     "priceRange": "$$",
     "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "16:00"}
@@ -55,13 +55,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* paleta Darii — cztery kolory z moodboardu */
-  --azul:     #28374A;   /* granat — dark scene default */
-  --azul-dk:  #1E2B3B;   /* głębszy granat — break sekcje */
-  --verde:    #6B6751;   /* verde opaco — break sekcje */
-  --terra:    #754437;   /* terra queimada — accent (bordo) */
-  --terra-2:  #8d5544;   /* terra jaśniejsze — hover */
-  --areia:    #D3C7AD;   /* areia — foreground jasny */
+  /* paleta Darii — cztery kolory z moodboardu (wersja cieplejsza) */
+  --azul:     #2C3D53;   /* granat lekko rozjaśniony */
+  --azul-dk:  #223247;   /* głębszy granat */
+  --verde:    #706B55;   /* verde opaco lekko cieplej */
+  --terra:    #8B4F3F;   /* terra — rozjaśniona, mocniejsza obecność */
+  --terra-2:  #A05E48;   /* terra hover, cieplej */
+  --areia:    #DFCFAE;   /* areia — cieplejszy beż (mniej szary) */
 
   /* aliasy dark scene */
   --bg:       var(--azul);
@@ -73,11 +73,11 @@
   --line:     rgba(211,199,173,0.13);
   --line-2:   rgba(211,199,173,0.24);
 
-  /* Light scene (case study, kontakt) */
-  --ivory:    #F5F0E6;
-  --ink:      #2A2420;
-  --ink-soft: rgba(42,36,32,0.62);
-  --line-lt:  rgba(42,36,32,0.12);
+  /* Light scene — ciepły kremowy (manifest, case study, faq, kontakt) */
+  --ivory:    #F2ECDD;
+  --ink:      #2D2620;
+  --ink-soft: rgba(45,38,32,0.64);
+  --line-lt:  rgba(45,38,32,0.14);
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; background: var(--bg); }
@@ -209,11 +209,11 @@ body.mnav-open .nav-mobile { display: flex; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: saturate(.62) brightness(.38) contrast(.92);
+  filter: saturate(.82) brightness(.56) contrast(.94);
 }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20,20,20,0.58) 0%, rgba(20,20,20,0.3) 32%, rgba(20,20,20,0.2) 55%, rgba(20,20,20,0.6) 100%);
+  background: linear-gradient(180deg, rgba(30,43,59,0.42) 0%, rgba(30,43,59,0.15) 32%, rgba(30,43,59,0.15) 55%, rgba(30,43,59,0.55) 100%);
 }
 
 .hero-content {
@@ -304,12 +304,23 @@ body.mnav-open .nav-mobile { display: flex; }
   .hero-wordmark { font-size: clamp(4rem, 26vw, 12rem); }
 }
 
-/* ═══ MANIFEST (replaces mat-strip) ═══ */
+/* ═══ MANIFEST — light warm scene ═══ */
 #manifest {
   padding: 9rem 2.4rem 9rem;
-  background: var(--bg);
-  border-top: 1px solid var(--line);
+  background: var(--ivory);
+  color: var(--ink);
+  border-top: 2px solid var(--terra);
 }
+#manifest .manifest-eyebrow { color: var(--ink-soft); }
+#manifest .manifest-eyebrow span { color: var(--ink); }
+#manifest .manifest-eyebrow::before { background: var(--terra); }
+#manifest .manifest-headline { color: var(--ink); }
+#manifest .manifest-headline em { color: var(--ink-soft); }
+#manifest .manifest-list li { border-color: var(--line-lt); }
+#manifest .manifest-list li:first-child { border-top-color: var(--line-lt); }
+#manifest .manifest-list .num { color: var(--terra); }
+#manifest .manifest-list .mat { color: var(--ink); }
+#manifest .manifest-list .mat span { color: var(--ink-soft); }
 .manifest-inner {
   max-width: 1400px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr;
@@ -755,12 +766,24 @@ body.mnav-open .nav-mobile { display: flex; }
   .o-row { grid-template-columns: 1fr; gap: .3rem; }
 }
 
-/* ═══ FAQ ═══ */
+/* ═══ FAQ — light warm scene ═══ */
 #faq {
-  background: var(--bg-2);
+  background: var(--ivory);
+  color: var(--ink);
   padding: 10rem 2.4rem;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--terra);
 }
+#faq .sec-label { color: var(--ink-soft); }
+#faq .sec-label span { color: var(--ink); }
+#faq .sec-label::before { background: var(--terra); }
+#faq .sec-heading { color: var(--ink); }
+#faq .sec-heading em { color: var(--ink-soft); }
+#faq .faq-item { border-color: var(--line-lt); }
+#faq .faq-q { color: var(--ink); }
+#faq .faq-q .mark { color: var(--ink-soft); }
+#faq .faq-item.open .faq-q .mark { color: var(--terra); }
+#faq .faq-a p { color: var(--ink-soft); }
+#faq .faq-head > p { color: var(--ink-soft) !important; }
 .faq-inner { max-width: 900px; margin: 0 auto; }
 .faq-head {
   display: flex; justify-content: space-between; align-items: end;
@@ -1377,16 +1400,16 @@ html.js-ready .fi.v { transform: translateY(0); }
 
     <div class="k-details">
       <div class="k-col fi">
-        <p class="lbl">hala produkcyjna</p>
-        <p>Narwicka 10<br>80-557 Gdańsk</p>
+        <p class="lbl">hala i biuro</p>
+        <p>ul. Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
         <p class="rating">
-          <a href="https://www.google.com/maps/search/?api=1&query=Narwicka+10%2C+80-557+Gda%C5%84sk" target="_blank" rel="noopener">zobacz na mapie ↗</a>
+          <a href="https://www.google.com/maps/place/Good+Wood/@54.245531,18.6296243,17z/data=!3m1!4b1!4m6!3m5!1s0x46fd0b552186e251:0xa39b4bdfd2ed6d85" target="_blank" rel="noopener">zobacz na mapie ↗</a>
         </p>
       </div>
       <div class="k-col fi">
         <p class="lbl">opinie</p>
         <p>★ 4,2 / 5</p>
-        <p class="rating"><a href="https://www.google.com/maps/search/?api=1&query=Narwicka+10%2C+80-557+Gda%C5%84sk" target="_blank" rel="noopener">35 opinii na google ↗</a></p>
+        <p class="rating"><a href="https://www.google.com/maps/place/Good+Wood/@54.245531,18.6296243,17z/data=!3m1!4b1!4m6!3m5!1s0x46fd0b552186e251:0xa39b4bdfd2ed6d85" target="_blank" rel="noopener">35 opinii na google ↗</a></p>
       </div>
       <div class="k-col fi">
         <p class="lbl">dane firmy</p>
@@ -1461,13 +1484,12 @@ html.js-ready .fi.v { transform: translateY(0); }
       <p class="lbl">kontakt</p>
       <a href="tel:+48507027300">507 027 300</a>
       <a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a>
-      <p>hala produkcyjna:<br>Narwicka 10, 80-557 Gdańsk</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=Narwicka+10%2C+80-557+Gda%C5%84sk" target="_blank" rel="noopener">zobacz na mapie ↗</a>
+      <p>ul. Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
+      <a href="https://www.google.com/maps/place/Good+Wood/@54.245531,18.6296243,17z/data=!3m1!4b1!4m6!3m5!1s0x46fd0b552186e251:0xa39b4bdfd2ed6d85" target="_blank" rel="noopener">zobacz na mapie ↗</a>
     </div>
     <div class="foot-col">
       <p class="lbl">firma</p>
-      <p>MNW Sp. z o.o.<br>ul. Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
-      <p style="margin-top:.6rem">NIP 957 106 71 37<br>REGON 221790146<br>KRS 0000441826</p>
+      <p>MNW Sp. z o.o.<br>NIP 957 106 71 37<br>REGON 221790146<br>KRS 0000441826</p>
     </div>
   </div>
   <div class="foot-bottom">
