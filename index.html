@@ -55,23 +55,28 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:       #141414;
-  --bg-2:     #1c1c1c;
-  --fg:       #D3C7AD;   /* areia */
-  --fg-soft:  rgba(211,199,173,0.58);
-  --fg-dim:   rgba(211,199,173,0.32);
-  --terra:    #754437;
-  --terra-2:  #8d5544;
-  --verde:    #6B6751;
-  --azul:     #28374A;
-  --line:     rgba(211,199,173,0.12);
-  --line-2:   rgba(211,199,173,0.22);
+  /* paleta Darii — cztery kolory z moodboardu */
+  --azul:     #28374A;   /* granat — dark scene default */
+  --azul-dk:  #1E2B3B;   /* głębszy granat — break sekcje */
+  --verde:    #6B6751;   /* verde opaco — break sekcje */
+  --terra:    #754437;   /* terra queimada — accent (bordo) */
+  --terra-2:  #8d5544;   /* terra jaśniejsze — hover */
+  --areia:    #D3C7AD;   /* areia — foreground jasny */
+
+  /* aliasy dark scene */
+  --bg:       var(--azul);
+  --bg-2:     var(--azul-dk);
+  --fg:       var(--areia);
+  --fg-soft:  rgba(211,199,173,0.62);
+  --fg-dim:   rgba(211,199,173,0.38);
+  --line:     rgba(211,199,173,0.13);
+  --line-2:   rgba(211,199,173,0.24);
 
   /* Light scene (case study, kontakt) */
-  --ivory:    #F5F3EF;
-  --ink:      #141414;
-  --ink-soft: rgba(20,20,20,0.58);
-  --line-lt:  rgba(20,20,20,0.10);
+  --ivory:    #F5F0E6;
+  --ink:      #2A2420;
+  --ink-soft: rgba(42,36,32,0.62);
+  --line-lt:  rgba(42,36,32,0.12);
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; background: var(--bg); }
