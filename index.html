@@ -31,7 +31,7 @@
     "legalName": "MNW Sp. z o.o.",
     "url": "https://ahameble.pl",
     "telephone": "+48507027300",
-    "email": "kontakt@ahameble.pl",
+    "email": "goodwood.harackiewicz@gmail.com",
     "address": {"@type": "PostalAddress", "streetAddress": "ul. Batalionów Chłopskich 8", "addressLocality": "Pruszcz Gdański", "postalCode": "83-000", "addressCountry": "PL"},
     "geo": {"@type": "GeoCoordinates", "latitude": 54.2455, "longitude": 18.6296},
     "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.2", "reviewCount": "40"},
@@ -1414,7 +1414,7 @@ html.js-ready .fi.v { transform: translateY(0); }
       <a href="tel:+48507027300" class="k-phone">507 027 300</a>
       <div class="k-phone-meta">
         pn–pt · 8:00–16:00<br>
-        lub mailem: <a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a>
+        lub mailem: <a href="mailto:goodwood.harackiewicz@gmail.com">goodwood.harackiewicz@gmail.com</a>
       </div>
     </div>
 
@@ -1479,7 +1479,7 @@ html.js-ready .fi.v { transform: translateY(0); }
           wyślij wiadomość
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <div class="f-success" id="fSuccess"><strong>dziękujemy.</strong>odezwiemy się w ciągu 5 dni roboczych (dni robocze). sprawdź też folder spam.</div>
+        <div class="f-success" id="fSuccess"><strong>dziękujemy.</strong> otworzyliśmy Twój program pocztowy z gotową wiadomością — kliknij w nim „wyślij". jeśli nic się nie otworzyło, napisz wprost na <a href="mailto:goodwood.harackiewicz@gmail.com">goodwood.harackiewicz@gmail.com</a>. odpowiadamy do 5 dni roboczych.</div>
       </form>
     </div>
   </div>
@@ -1503,7 +1503,7 @@ html.js-ready .fi.v { transform: translateY(0); }
     <div class="foot-col">
       <p class="lbl">kontakt</p>
       <a href="tel:+48507027300">507 027 300</a>
-      <a href="mailto:kontakt@ahameble.pl">kontakt@ahameble.pl</a>
+      <a href="mailto:goodwood.harackiewicz@gmail.com">goodwood.harackiewicz@gmail.com</a>
       <p>ul. Batalionów Chłopskich 8<br>83-000 Pruszcz Gdański</p>
       <a href="https://www.google.com/maps/place/Good+Wood/@54.245531,18.6296243,17z/data=!3m1!4b1!4m6!3m5!1s0x46fd0b552186e251:0xa39b4bdfd2ed6d85" target="_blank" rel="noopener">zobacz na mapie ↗</a>
     </div>
@@ -1650,19 +1650,21 @@ document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
 // ═══ Form submit (fake for now — Formspree placeholder) ═══
 function submitForm(e) {
-  const action = document.getElementById('contactForm').action;
-  if (action.includes('FORMSPREE_ID_PLACEHOLDER')) {
-    e.preventDefault();
-    const btn = document.getElementById('fBtn');
-    btn.disabled = true; btn.textContent = 'wysyłanie...';
-    setTimeout(() => {
-      document.getElementById('fSuccess').style.display = 'block';
-      document.getElementById('contactForm').style.display = 'none';
-    }, 700);
-    return false;
-  }
-  return true;
+  e.preventDefault();
+  const f = document.getElementById('contactForm');
+  const v = id => (document.getElementById(id).value || '').trim();
+  const subject = 'Zapytanie ze strony ahameble.pl — ' + v('fname');
+  const body = 'Jestem: ' + v('ftype') + '\nImię i nazwisko: ' + v('fname') + '\nEmail: ' + v('femail') + (v('fphone') ? '\nTelefon: ' + v('fphone') : '') + '\n\nProjekt:\n' + v('fmsg') + '\n\n— wysłane z formularza ahameble.pl';
+  window.location.href = 'mailto:goodwood.harackiewicz@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  const btn = document.getElementById('fBtn');
+  btn.disabled = true; btn.textContent = 'otwieram program pocztowy…';
+  setTimeout(() => {
+    document.getElementById('fSuccess').style.display = 'block';
+    f.style.display = 'none';
+  }, 900);
+  return false;
 }
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
