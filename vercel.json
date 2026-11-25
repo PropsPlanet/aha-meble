@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.ahameble.pl" }],
+      "destination": "https://ahameble.pl/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.ahameble.pl" }],
       "destination": "https://ahameble.pl/:path*",
